@@ -80,11 +80,11 @@ class NaiveBayes:
         return model
 
     @staticmethod
-    def doPredict(model_trained, encoder):
+    def doPredict(inputUser, model_trained, encoder):
         """
         Realizar uma inferência / previsão
         """
-        x_input = np.array([['sunny', 'mild', 'high', 'false ']])
+        x_input = np.array(inputUser)
         x_input_encoded = encoder.transform(x_input).toarray()
         y_pred = model_trained.predict(x_input_encoded)
         return y_pred
@@ -146,7 +146,12 @@ def executePredict():
     naiveB.set_x_atributos(x_atributos)
     naiveB.set_y_classes(y_classes)
 
-    print("Output: ", naiveB.doPredict(modelTrained, encoder))
+    entrada = input("Entre com as caracteristicas: ")
+    entrada2 = entrada.split()
+    entrada2[3] += " "
+    inputUser = [entrada2]
+
+    print("Output: ", naiveB.doPredict(inputUser, modelTrained, encoder))
 
     # Métricas
     y_pred = modelTrained.predict(naiveB.get_x_atributos())  # Faz previsões no conjunto de teste

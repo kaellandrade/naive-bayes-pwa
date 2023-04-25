@@ -9,8 +9,8 @@ from sklearn.metrics import f1_score
 from sklearn.metrics import roc_auc_score
 from sklearn.preprocessing import OneHotEncoder
 
-FILE_DADOS_BASE = 'tennis.csv'
-FILE_DADOS_TREINADOS = 'tennis_modelo.pkl'  # arquivo onde será salvo o modelo treinado
+FILE_DADOS_BASE = 'DADOS_IA_PROJETO.csv'
+FILE_DADOS_TREINADOS = 'DADOS_IA_MODEL.pkl'  # arquivo onde será salvo o modelo treinado
 
 
 class IO:
@@ -60,8 +60,8 @@ class NaiveBayes:
         """
         Separar os dados entre um array atributos e um array classes
         """
-        self.x_atributos = database.iloc[:, 0:4].values
-        self.y_classes = database.iloc[:, 4].values
+        self.x_atributos = database.iloc[:, 4:8].values
+        self.y_classes = database.iloc[:, 3].values
 
     def codeToBynary(self):
         """
@@ -80,11 +80,11 @@ class NaiveBayes:
         return model
 
     @staticmethod
-    def doPredict(inputUser, model_trained, encoder):
+    def doPredict(input_user, model_trained, encoder):
         """
         Realizar uma inferência / previsão
         """
-        x_input = np.array(inputUser)
+        x_input = np.array(input_user)
         x_input_encoded = encoder.transform(x_input).toarray()
         y_pred = model_trained.predict(x_input_encoded)
         return y_pred
@@ -146,19 +146,22 @@ def executePredict():
     naiveB.set_x_atributos(x_atributos)
     naiveB.set_y_classes(y_classes)
 
-    inputUser = input("Entre com as caracteristicas: ")
-    inputUser = inputUser.split()
-    inputUser[3] += " "   # necessario para evitar que o método 'iloc' está convertendo 'false' em False
+    especie = input("Espécie: ")
+    porte = input("Porte: ")
+    idade = input("Idade: ")
+    depto = input("Categoria/Departamento: ")
+
+    inputUser = [especie, porte, idade, depto]
 
     print("Output: ", naiveB.doPredict([inputUser], modelTrained, encoder))
 
-    # Métricas
+    #Métricas
     y_pred = modelTrained.predict(naiveB.get_x_atributos())  # Faz previsões no conjunto de teste
     print("Acuracia: {:.1f}%".format(naiveB.acccuracy(y_pred, naiveB.get_y_classes())))
-    print("Precisao: {:.1f}%".format(naiveB.precision(y_pred, naiveB.get_y_classes())))
-    print("Sensibilidade: {:.1f}%".format(naiveB.recall(y_pred, naiveB.get_y_classes())))
-    print("F1-Score: {:.1f}%".format(naiveB.f1_score(y_pred, naiveB.get_y_classes())))
-    print("AUC: {:.1f}%".format(naiveB.auc(naiveB.get_y_classes(), naiveB.get_x_atributos(), modelTrained)))
+    # print("Precisao: {:.1f}%".format(naiveB.precision(y_pred, naiveB.get_y_classes())))
+    # print("Sensibilidade: {:.1f}%".format(naiveB.recall(y_pred, naiveB.get_y_classes())))
+    # print("F1-Score: {:.1f}%".format(naiveB.f1_score(y_pred, naiveB.get_y_classes())))
+    # print("AUC: {:.1f}%".format(naiveB.auc(naiveB.get_y_classes(), naiveB.get_x_atributos(), modelTrained)))
 
 
 # executeTraining()

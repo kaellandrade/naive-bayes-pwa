@@ -2,6 +2,10 @@ import pandas as pd
 import numpy as np
 import pickle
 from sklearn.naive_bayes import GaussianNB
+from sklearn.naive_bayes import BernoulliNB
+from sklearn.naive_bayes import CategoricalNB
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.naive_bayes import ComplementNB
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import precision_score
 from sklearn.metrics import recall_score
@@ -9,8 +13,10 @@ from sklearn.metrics import f1_score
 from sklearn.metrics import roc_auc_score
 from sklearn.preprocessing import OneHotEncoder
 
-FILE_DADOS_BASE = 'DADOS_IA_PROJETO.csv'
-FILE_DADOS_TREINADOS = 'DADOS_IA_MODEL.pkl'  # arquivo onde será salvo o modelo treinado
+
+
+FILE_DADOS_BASE = 'DADOS_10_MIL_LINHAS.csv'
+FILE_DADOS_TREINADOS = 'DADOS_10_MIL_MODEL.pkl'  # arquivo onde será salvo o modelo treinado
 
 
 class IO:
@@ -131,7 +137,14 @@ def executeTraining():
     naiveB = NaiveBayes()
     io = IO()
 
+
     dataBase = io.readDataCSV()
+
+    # Remoção de stop words
+    # preProcessor = DataPreProcessing()
+    # dataBase['PRODUTO'] = dataBase['PRODUTO'].apply(preProcessor.remove_stop_words)
+
+
     naiveB.splitData(dataBase)
     encoder = naiveB.codeToBynary()
     modelTrained = naiveB.training()
@@ -146,14 +159,14 @@ def executePredict():
     naiveB.set_x_atributos(x_atributos)
     naiveB.set_y_classes(y_classes)
 
-    especie = input("Espécie: ")
-    porte = input("Porte: ")
-    idade = input("Idade: ")
-    depto = input("Categoria/Departamento: ")
-
-    inputUser = [especie, porte, idade, depto]
-
-    print("Output: ", naiveB.doPredict([inputUser], modelTrained, encoder))
+    # especie = input("Espécie: ")
+    # porte = input("Porte: ")
+    # idade = input("Idade: ")
+    # depto = input("Categoria/Departamento: ")
+    #
+    # inputUser = [especie, porte, idade, depto]
+    #
+    # print("Output: ", naiveB.doPredict([inputUser], modelTrained, encoder))
 
     #Métricas
     y_pred = modelTrained.predict(naiveB.get_x_atributos())  # Faz previsões no conjunto de teste

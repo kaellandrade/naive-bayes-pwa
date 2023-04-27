@@ -2,9 +2,7 @@ const cacheName = "pet-indica";
 
 const urlsToCache = [
   "/",
-  "index.html",
   "styles.css",
-  "python/main.py",
   "https://cdn.jsdelivr.net/pyodide/v0.23.1/full/pyodide.js",
 ];
 
@@ -17,9 +15,13 @@ self.addEventListener("install", (event) => {
 });
 
 self.addEventListener("fetch", (event) => {
+  // Evita que o arquivo python  seja carregado em cache e nao altere os seus dados
+  if (event.request.url.includes("main.py")) {
+    console.log("URL NAO CHAMADA: ", event.request.url);
+    return; // Ignora a solicitação fecth do arquivo python
+  }
   event.respondWith(
     caches.match(event.request).then((response) => {
-      console.log(response);
       if (response) {
         return response;
       }

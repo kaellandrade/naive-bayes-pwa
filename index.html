@@ -12,32 +12,27 @@
   <body>
     <h1>Pet indica</h1>
 
-    <div id="output"></div>
+    <div><input type="text" id="input-id" /></div>
+    <button id="button-id" onclick="addClickListener()"></button>
 
     <script>
       if ("serviceWorker" in navigator) {
         window.addEventListener("load", function () {
-          navigator.serviceWorker.register("service-worker.js");
+          try {
+            const registration =
+              navigator.serviceWorker.register("service-worker.js");
+            if (registration.installing) {
+              console.log("Service worker installing");
+            } else if (registration.waiting) {
+              console.log("Service worker installed");
+            } else if (registration.active) {
+              console.log("Service worker active");
+            }
+          } catch {
+            console.error(`Registration failed with ${error}`);
+          }
         });
       }
-    </script>
-
-    \
-    <script>
-      // async function loadPython() {
-      //   let pyodide = await loadPyodide();
-
-      //   // Execute o código Python
-      //   pyodide.runPython(`
-      //     def hello():
-      //         return "Olá, Pyodide!"
-
-      //     print(hello())
-      //   `);
-      // }
-
-      // // Chame a função para carregar o Pyodide
-      // loadPython();
     </script>
 
     <script type="module" src="js/run-python.js"></script>

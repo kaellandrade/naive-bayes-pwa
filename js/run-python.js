@@ -4,6 +4,9 @@ async function main() {
 }
 
 let pyodideSobscribePromisse = main();
+const context = pyodideSobscribePromisse.globals;
+
+console.log(context);
 
 async function evaluatePython() {
   let pyodide = await pyodideSobscribePromisse;

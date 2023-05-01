@@ -5,7 +5,7 @@ body {
 .categoria,
 .idade,
 .porte {
-  background-color: #9c8d8b;
+  background-color: #a3a3a3;
   max-height: 5rem;
   padding: 0.4rem;
   border-radius: 1rem;
@@ -66,6 +66,18 @@ body {
   font-weight: bold;
 }
 
+@media screen and (min-width: 1024px) {
+}
+
+@media screen and (max-width: 1024px) {
+  .label-component,
+  .categorias,
+  .idades,
+  .portes {
+    width: 60%;
+  }
+}
+
 @media screen and (max-width: 800px) {
   .label-component,
   .categorias,
@@ -88,6 +100,26 @@ body {
   .categorias,
   .portes {
     padding-left: 8rem;
+  }
+
+  .idade {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .label-component,
+  .categorias,
+  .idades,
+  .portes {
+    width: 100%;
+    overflow-x: scroll;
+  }
+
+  .categorias,
+  .portes {
+    padding-left: 10.5rem;
   }
 
   .idade {

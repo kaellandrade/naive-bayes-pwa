@@ -63,12 +63,12 @@ class NaiveBayes:
     def get_y_classes(self):
         return self.y_classes
 
-    def splitData(self, database):
+    def splitData(self, database, column):
         """
         Separar os dados entre um array atributos e um array classes
         """
         self.x_atributos = database.iloc[:, 0:1].values
-        self.y_classes = database.iloc[:, 3].values
+        self.y_classes = database.iloc[:, column].values
 
     def codeToBynary(self):
         """
@@ -138,12 +138,13 @@ def execute():
     naiveB = NaiveBayes()
     io = IO()
     dataBase = io.readDataCSV()
-    naiveB.splitData(dataBase)
+    inputColumn = int(sys.argv[2])
+    naiveB.splitData(dataBase, inputColumn)
     encoder = naiveB.codeToBynary()
     modelTrained = naiveB.training()
 
     inputUser = [int(sys.argv[1])]
-    # inputUser = [318606]
+    # inputUser = [20]
 
     previsao = modelTrained.predict([inputUser])
     print(previsao)

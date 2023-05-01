@@ -134,49 +134,37 @@ class NaiveBayes:
         return roc_auc_score(saidas_reais, y_scores) * 100
 
 
-def executeTraining():
+def execute():
     naiveB = NaiveBayes()
     io = IO()
     dataBase = io.readDataCSV()
     naiveB.splitData(dataBase)
     encoder = naiveB.codeToBynary()
     modelTrained = naiveB.training()
-    io.salveDataTrain(naiveB.get_x_atributos(), naiveB.get_y_classes(), modelTrained, encoder)
-
-
-def executePredict():
-    naiveB = NaiveBayes()
-    io = IO()
-
-    x_atributos, y_classes, modelTrained, encoder = io.loadDataTrain()
-    naiveB.set_x_atributos(x_atributos)
-    naiveB.set_y_classes(y_classes)
-
-
 
     inputUser = [int(sys.argv[1])]
-    # inputUser = [19359]
-
+    # inputUser = [318606]
 
     previsao = modelTrained.predict([inputUser])
     print(previsao)
 
 
-    # y_prob = modelTrained.predict(naiveB.get_x_atributos())  # Retorno de probabilidade pra cada classe
-    # print("Probabilidades: ", y_prob)
 
-    # Métricas
-    # y_pred = modelTrained.predict(naiveB.get_x_atributos())  # Faz previsões no conjunto de teste
-    # print("Acuracia: {:.2f}%".format(naiveB.acccuracy(y_pred, naiveB.get_y_classes())))
-    # print("Precisao: {:.1f}%".format(naiveB.precision(y_pred, naiveB.get_y_classes())))
-    # print("Sensibilidade: {:.1f}%".format(naiveB.recall(y_pred, naiveB.get_y_classes())))
-    # print("F1-Score: {:.1f}%".format(naiveB.f1_score(y_pred, naiveB.get_y_classes())))
-    # print("AUC: {:.1f}%".format(naiveB.auc(naiveB.get_y_classes(), naiveB.get_x_atributos(), modelTrained)))
+# def executePredict():
+#     # y_prob = modelTrained.predict(naiveB.get_x_atributos())  # Retorno de probabilidade pra cada classe
+#     # print("Probabilidades: ", y_prob)
+#
+#     # Métricas
+#     # y_pred = modelTrained.predict(naiveB.get_x_atributos())  # Faz previsões no conjunto de teste
+#     # print("Acuracia: {:.2f}%".format(naiveB.acccuracy(y_pred, naiveB.get_y_classes())))
+#     # print("Precisao: {:.1f}%".format(naiveB.precision(y_pred, naiveB.get_y_classes())))
+#     # print("Sensibilidade: {:.1f}%".format(naiveB.recall(y_pred, naiveB.get_y_classes())))
+#     # print("F1-Score: {:.1f}%".format(naiveB.f1_score(y_pred, naiveB.get_y_classes())))
+#     # print("AUC: {:.1f}%".format(naiveB.auc(naiveB.get_y_classes(), naiveB.get_x_atributos(), modelTrained)))
 
 
 if __name__ == '__main__':
-    executeTraining()
-    executePredict()
+    execute()
 
 
 

@@ -1,0 +1,129 @@
+body {
+  background-color: #f2eae9;
+}
+
+.categoria,
+.idade,
+.porte {
+  background-color: #a3a3a3;
+  max-height: 5rem;
+  padding: 0.4rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  text-align: center;
+  flex: 1;
+}
+
+.categoria,
+.idade,
+.porte {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.idade,
+.porte {
+  border-radius: 0.4rem;
+  max-height: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.compoenetes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.nome {
+  margin-top: 0.5rem;
+}
+
+.categorias,
+.idades,
+.portes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  padding-bottom: 1rem;
+}
+
+.label-component {
+  background-color: #fff;
+  display: flex;
+
+  justify-content: start;
+  align-items: flex-start;
+  padding-bottom: 15px;
+  width: 50%;
+}
+
+.label {
+  margin-left: 2rem;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 1024px) {
+}
+
+@media screen and (max-width: 1024px) {
+  .label-component,
+  .categorias,
+  .idades,
+  .portes {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .label-component,
+  .categorias,
+  .idades,
+  .portes {
+    width: 90%;
+    overflow-x: scroll;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .label-component,
+  .categorias,
+  .idades,
+  .portes {
+    width: 100%;
+    overflow-x: scroll;
+  }
+
+  .categorias,
+  .portes {
+    padding-left: 8rem;
+  }
+
+  .idade {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .label-component,
+  .categorias,
+  .idades,
+  .portes {
+    width: 100%;
+    overflow-x: scroll;
+  }
+
+  .categorias,
+  .portes {
+    padding-left: 10.5rem;
+  }
+
+  .idade {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}

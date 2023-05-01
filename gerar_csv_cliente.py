@@ -6,7 +6,7 @@ df = pd.read_csv('./Dados/DADOS_TRATADOS.csv')
 
 # Seleciona as linhas que contêm o valor Y na coluna X
 cliente = int(sys.argv[1])
-print('Cliente', cliente)
+# cliente = 305985
 df_Y = df[df['CODCLI'] == cliente]
 
 # Salva as linhas selecionadas em um novo CSV

@@ -1,6 +1,8 @@
 import pandas as pd
+import sys
 import numpy as np
 import pickle
+import csv
 from sklearn.naive_bayes import GaussianNB
 from sklearn.naive_bayes import BernoulliNB
 from sklearn.naive_bayes import CategoricalNB
@@ -14,9 +16,8 @@ from sklearn.metrics import roc_auc_score
 from sklearn.preprocessing import OneHotEncoder
 
 
-
-FILE_DADOS_BASE = 'DADOS_10_MIL_LINHAS.csv'
-FILE_DADOS_TREINADOS = 'DADOS_10_MIL_MODEL.pkl'  # arquivo onde será salvo o modelo treinado
+FILE_DADOS_BASE = './Dados/DADOS_CLIENTE_X.csv'
+FILE_DADOS_TREINADOS = 'DADOS_MODEL.pkl'  # arquivo onde será salvo o modelo treinado
 
 
 class IO:
@@ -66,7 +67,7 @@ class NaiveBayes:
         """
         Separar os dados entre um array atributos e um array classes
         """
-        self.x_atributos = database.iloc[:, 4:8].values
+        self.x_atributos = database.iloc[:, 0:1].values
         self.y_classes = database.iloc[:, 3].values
 
     def codeToBynary(self):
@@ -81,7 +82,7 @@ class NaiveBayes:
         """
         Realizar treinamento
         """
-        model = GaussianNB()
+        model = MultinomialNB()
         model.fit(self.x_atributos, self.y_classes)
         return model
 
@@ -136,15 +137,7 @@ class NaiveBayes:
 def executeTraining():
     naiveB = NaiveBayes()
     io = IO()
-
-
     dataBase = io.readDataCSV()
-
-    # Remoção de stop words
-    # preProcessor = DataPreProcessing()
-    # dataBase['PRODUTO'] = dataBase['PRODUTO'].apply(preProcessor.remove_stop_words)
-
-
     naiveB.splitData(dataBase)
     encoder = naiveB.codeToBynary()
     modelTrained = naiveB.training()
@@ -159,23 +152,31 @@ def executePredict():
     naiveB.set_x_atributos(x_atributos)
     naiveB.set_y_classes(y_classes)
 
-    # especie = input("Espécie: ")
-    # porte = input("Porte: ")
-    # idade = input("Idade: ")
-    # depto = input("Categoria/Departamento: ")
-    #
-    # inputUser = [especie, porte, idade, depto]
-    #
-    # print("Output: ", naiveB.doPredict([inputUser], modelTrained, encoder))
 
-    #Métricas
-    y_pred = modelTrained.predict(naiveB.get_x_atributos())  # Faz previsões no conjunto de teste
-    print("Acuracia: {:.1f}%".format(naiveB.acccuracy(y_pred, naiveB.get_y_classes())))
+
+    inputUser = [int(sys.argv[1])]
+    # inputUser = [19359]
+
+
+    previsao = modelTrained.predict([inputUser])
+    print(previsao)
+
+
+    # y_prob = modelTrained.predict(naiveB.get_x_atributos())  # Retorno de probabilidade pra cada classe
+    # print("Probabilidades: ", y_prob)
+
+    # Métricas
+    # y_pred = modelTrained.predict(naiveB.get_x_atributos())  # Faz previsões no conjunto de teste
+    # print("Acuracia: {:.2f}%".format(naiveB.acccuracy(y_pred, naiveB.get_y_classes())))
     # print("Precisao: {:.1f}%".format(naiveB.precision(y_pred, naiveB.get_y_classes())))
     # print("Sensibilidade: {:.1f}%".format(naiveB.recall(y_pred, naiveB.get_y_classes())))
     # print("F1-Score: {:.1f}%".format(naiveB.f1_score(y_pred, naiveB.get_y_classes())))
     # print("AUC: {:.1f}%".format(naiveB.auc(naiveB.get_y_classes(), naiveB.get_x_atributos(), modelTrained)))
 
 
-# executeTraining()
-executePredict()
+if __name__ == '__main__':
+    executeTraining()
+    executePredict()
+
+
+

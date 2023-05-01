@@ -1,18 +1,1 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
 
-h1 {
-  background-color: #336699;
-  color: #fff;
-  margin: 0;
-  padding: 16px;
-}
-
-#output {
-  margin: 16px;
-  padding: 16px;
-  border: 1px solid #ccc;
-}

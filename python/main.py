@@ -12,9 +12,10 @@ async def getData(*args):
     json = await response.json()
     console.log('json', json)
     pre_element = document.createElement("h2")
+    pre_element.id = "idade"
     pre_element.textContent = str(json.age)
-    my_div = document.getElementById("result")
-    my_div.appendChild(pre_element)
+    elementoAntigo = document.getElementById("idade");
+    elementoAntigo.parentNode.replaceChild(pre_element, elementoAntigo);
     return json
     
 
@@ -22,7 +23,7 @@ async def main():
     await getData()
 
 loop = asyncio.get_event_loop()
-loop.run_until_complete(main())
+# loop.run_until_complete(main())
 
 
 #  =================================================
@@ -30,13 +31,16 @@ loop.run_until_complete(main())
 def f(*args):
     inputValues = document.getElementById('input-id').value
     console.log(inputValues)
+
+    
     
 def getValue():
     btn = document.getElementById('button-id')
 
-    proxy_f = create_proxy(f, roundtrip=True)
+    proxy_f = create_proxy(getData, roundtrip=True)
     btn = document.getElementById('button-id')
     btn.addEventListener('click', proxy_f)
+    
     
 
 getValue()

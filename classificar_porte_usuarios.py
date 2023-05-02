@@ -26,7 +26,7 @@ def especie():
             start_time = time.time()
 
             # Executa o arquivo python
-            subprocess.run(["python3", "gerar_csv_cliente_especie.py", str(valor_coluna)], capture_output=False, text=False)
+            subprocess.run(["python3", "gerar_csv_cliente.py", str(valor_coluna)], capture_output=False, text=False)
 
             end_time = time.time()
             elapsed_time = end_time - start_time
@@ -34,7 +34,7 @@ def especie():
 
             start_time = time.time()
 
-            output = subprocess.check_output(["python3", "teste-naive-bayes-pets_especie.py", str(valor_coluna) , str(3)])
+            output = subprocess.check_output(["python3", "teste-naive-bayes-pets.py", str(valor_coluna) , str(3)])
 
             end_time = time.time()
             elapsed_time = end_time - start_time
@@ -71,19 +71,19 @@ def porte():
             start_time = time.time()
 
             # Executa o arquivo python
-            subprocess.run(["python3", "gerar_csv_cliente.py", str(valor_coluna)], capture_output=False, text=False)
+            subprocess.run(["python3", "gerar_csv_cliente_porte.py", str(valor_coluna)], capture_output=False, text=False)
 
             end_time = time.time()
             elapsed_time = end_time - start_time
-            print("Tempo de execução para gerar csv do PORTE em cliente: {:.2f} segundos".format(elapsed_time))
+            #print("Tempo de execução para gerar csv do PORTE em cliente: {:.2f} segundos".format(elapsed_time))
 
             start_time = time.time()
 
-            output = subprocess.check_output(["python3", "teste-naive-bayes-pets.py", str(valor_coluna) , str(4)])
+            output = subprocess.check_output(["python3", "teste-naive-bayes-pets_porte.py", str(valor_coluna) , str(4)])
 
             end_time = time.time()
             elapsed_time = end_time - start_time
-            print("Tempo de execução para inferir a PORTE do cliente: {:.2f} segundos".format(elapsed_time))
+            #print("Tempo de execução para inferir a PORTE do cliente: {:.2f} segundos".format(elapsed_time))
 
             linha.append(output.decode('utf-8').strip())
             escritor_csv.writerow(linha)
@@ -119,7 +119,7 @@ def idade():
 
             end_time = time.time()
             elapsed_time = end_time - start_time
-            print("Tempo de execução para gerar csv da IDADE em cliente: {:.2f} segundos".format(elapsed_time))
+            #print("Tempo de execução para gerar csv da IDADE em cliente: {:.2f} segundos".format(elapsed_time))
 
             start_time = time.time()
 
@@ -127,7 +127,7 @@ def idade():
 
             end_time = time.time()
             elapsed_time = end_time - start_time
-            print("Tempo de execução para inferir a IDADE do cliente: {:.2f} segundos".format(elapsed_time))
+            #print("Tempo de execução para inferir a IDADE do cliente: {:.2f} segundos".format(elapsed_time))
 
             linha.append(output.decode('utf-8').strip())
             escritor_csv.writerow(linha)
@@ -141,10 +141,10 @@ if __name__ == '__main__':
     pb = multiprocessing.Process(target=porte)
     pc = multiprocessing.Process(target=idade)
 
-    pa.start()
-   # pb.start()
+   # pa.start()
+    pb.start()
    # pc.start()
 
-    pa.join()
-   # pb.join()
+    #pa.join()
+    pb.join()
    # pc.join()

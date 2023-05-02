@@ -280,8 +280,6 @@ def inferir_idade():
 
             print(f'{cont} usuarios concluidos')
 
-
-
             cont = cont + 1
 
 

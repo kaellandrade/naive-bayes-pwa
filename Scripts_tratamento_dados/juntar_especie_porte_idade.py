@@ -1,8 +1,8 @@
 import pandas as pd
 import chardet
 
-FILE_1_PATH = '../Dados/Gilberto - 10001 a 20000/USUARIOS_PETS.csv'
-FILE_2_PATH = '../Dados/Gilberto - 10001 a 20000/USUARIOS_IDADE.csv'
+FILE_1_PATH = '../Dados/Gabriel - inico a 10000/USUARIOS_PETS.csv'
+FILE_2_PATH = '../Dados/Gabriel - inico a 10000/USUARIOS_IDADE.csv'
 
 # Descobrir qual a codificação dos arquivos
 with open(FILE_1_PATH, 'rb') as f:
@@ -20,4 +20,4 @@ df2 = pd.read_csv(FILE_2_PATH, encoding=encode2['encoding'])
 df_merged = pd.merge(df1, df2, on='CODCLI')
 
 # salvar resultado em um novo arquivo CSV
-df_merged.to_csv('../Dados/Gilberto - 10001 a 20000/USUARIOS_PETS.csv', index=False)
+df_merged.to_csv('../Dados/Gabriel - inico a 10000/USUARIOS_PETS.csv', index=False)

@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Ler o arquivo CSV
-df = pd.read_csv('./Dados/DADOS_TRATADOS.csv')
+df = pd.read_csv('../Dados/DADOS_TRATADOS.csv')
 
 # Selecionar a coluna 'CODCLI' e remover valores duplicados
 codcli_unique = df['CODCLI'].unique()

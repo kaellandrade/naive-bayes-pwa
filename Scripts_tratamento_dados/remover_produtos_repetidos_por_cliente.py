@@ -1,7 +1,8 @@
 import pandas as pd
+import chardet
 
-# Lendo o arquivo CSV original
-df_dados_tratados = pd.read_csv("../Dados/DADOS_TRATADOS.csv")
+
+df_dados_tratados = pd.read_csv("../Dados/DADOS_TRATADOS_SEM_ACENTOS.csv", encoding='utf-8')
 
 df_usuarios = pd.read_csv("../Dados/USUARIOS.csv")
 
@@ -13,7 +14,7 @@ for index, row in df_usuarios.iterrows():
     df_x = df_dados_tratados[df_dados_tratados["CODCLI"] == cliente].copy()
 
     # Removendo as linhas onde a coluna "PRODUTO" se repete
-    df_x.drop_duplicates(subset=["PRODUTO"], inplace=True)
+    df_x.drop_duplicates(subset=["CODPROD"], inplace=True)
 
     # Adicionar as novas linhas ao final do arquivo existente
     with open("../Dados/DADOS_TRATADOS_SEM_REPETIR_PRODUTO.csv", mode='a', newline='') as f:

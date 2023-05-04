@@ -1,12 +1,10 @@
 import pandas as pd
+import chardet
 
-# leitura do arquivo CSV
-df = pd.read_csv('../Dados/DADOS_TRATADOS.csv')
-
-# criando as novas colunas relacionadas a idade
-df['IS_FILHOTE'] = df['IDADE'].str.contains('FILHOTE').astype(int)
-df['IS_ADULTO'] = df['IDADE'].str.contains('ADULTO').astype(int)
-df['IS_SENIOR'] = df['IDADE'].str.contains('SÊNIOR').astype(int)
+# Lê o arquivo CSV para um dataframe
+with open('../Dados/USUARIOS_PETS_REPRESENTACAO_PERFIS.csv', 'rb') as f:
+    encode = chardet.detect(f.read())
+df = pd.read_csv('../Dados/USUARIOS_PETS_REPRESENTACAO_PERFIS.csv', encoding=encode['encoding'])
 
 # criando as novas colunas relacionadas a especie
 df['IS_CAO'] = df['ESPECIE'].str.contains('CÃES').astype(int)
@@ -22,8 +20,13 @@ df['IS_MEDIO'] = df['PORTE'].str.contains('MÉDIO').astype(int)
 df['IS_GRANDE'] = df['PORTE'].str.contains('GRANDE').astype(int)
 df['IS_GIGANTE'] = df['PORTE'].str.contains('GIGANTE').astype(int)
 
+# criando as novas colunas relacionadas a idade
+df['IS_FILHOTE'] = df['IDADE'].str.contains('FILHOTE').astype(int)
+df['IS_ADULTO'] = df['IDADE'].str.contains('ADULTO').astype(int)
+df['IS_SENIOR'] = df['IDADE'].str.contains('SÊNIOR').astype(int)
+
 # Excluindo as colunas ESPECIE, PORTE e IDADE
 df = df.drop(columns=["ESPECIE", "PORTE", "IDADE"])
 
 # salvando o novo arquivo CSV
-df.to_csv('../Dados/DADOS_NOVAS_CARACTERISTICAS.csv', index=False)
+df.to_csv('../Dados/USUARIOS_PETS_REPRESENTACAO_PERFIS_COLUNAS_IS', index=False)

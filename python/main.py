@@ -5,17 +5,19 @@ from js import console, fetch, document, window
 from pyodide.ffi import create_proxy # Cria ao proxy 
 
 
-url = "https://api.agify.io?name=meelad"
+# url = "https://api.agify.io?name=meelad"
+
+url = "http://192.168.0.34:8000"
 
 async def getData(*args):
     response = await fetch(url, {'method': 'GET'})
     json = await response.json()
-    console.log('json', json)
-    pre_element = document.createElement("h2")
-    pre_element.id = "idade"
-    pre_element.textContent = str(json.age)
-    elementoAntigo = document.getElementById("idade");
-    elementoAntigo.parentNode.replaceChild(pre_element, elementoAntigo);
+    print('json', json.message)
+    # pre_element = document.createElement("h2")
+    # pre_element.id = "idade"
+    # pre_element.textContent = str(json.age)
+    # elementoAntigo = document.getElementById("idade");
+    # elementoAntigo.parentNode.replaceChild(pre_element, elementoAntigo);
     return json
     
 

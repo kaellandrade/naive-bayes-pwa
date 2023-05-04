@@ -3,10 +3,8 @@ import pandas as pd
 # Lendo o arquivo CSV original
 df_dados_tratados = pd.read_csv("../Dados/DADOS_TRATADOS.csv")
 
-# cria um dataframe com uma coluna chamada 'valores'
 df_usuarios = pd.read_csv("../Dados/USUARIOS.csv")
 
-# itera sobre cada linha do dataframe e imprime o valor da coluna 'valores'
 cont = 1
 for index, row in df_usuarios.iterrows():
     cliente = row['CODCLI']

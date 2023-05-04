@@ -1,6 +1,7 @@
 $(document).ready(function () {
   configurarInputsCategoria("categoria");
   configurarInputsCategoria("idade");
+  configurarInputsCategoria("porte");
 });
 
 /**

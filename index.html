@@ -18,14 +18,14 @@
 
   <body>
     <div class="container">
-      <div class="row text-center">
+      <div class="mt-3 row text-center">
         <div class="col-12">
           <div class="logo">
             <img src="./imgs/Logo.svg" alt="logo" />
           </div>
         </div>
       </div>
-      <div class="row">
+      <div class="mt-3 row">
         <section>
           <h3 class="title-section">Escolha uma categoria</h3>
           <div class="card-wrapper">
@@ -110,7 +110,7 @@
           </div>
         </section>
       </div>
-      <div class="row">
+      <div class="mt-3 row">
         <section>
           <h3 class="title-section">Selecione a idade</h3>
           <div class="card-wrapper">
@@ -135,15 +135,42 @@
           </div>
         </section>
       </div>
-      <div class="row">
+      <div class="mt-3 row">
         <section>
           <h3 class="title-section">Informe o porte do pet</h3>
+          <div class="card-wrapper">
+            <label class="label-card" for="porte-pequeno">
+              <input type="radio" name="porte" id="porte-pequeno" />
+              <div class="card card-idade">
+                <div class="rodape-label-card">Pequeno</div>
+              </div>
+            </label>
+            <label class="label-card" for="porte-medio">
+              <input type="radio" name="porte" id="porte-medio" />
+              <div class="card card-idade">
+                <div class="rodape-label-card">Médio</div>
+              </div>
+            </label>
+            <label class="label-card" for="porte-grande">
+              <input type="radio" name="porte" id="porte-grande" />
+              <div class="card card-idade">
+                <div class="rodape-label-card">Grande</div>
+              </div>
+            </label>
+            <label class="label-card" for="porte-gigante">
+              <input type="radio" name="porte" id="porte-gigante" />
+              <div class="card card-idade">
+                <div class="rodape-label-card">Gigante</div>
+              </div>
+            </label>
+          </div>
         </section>
       </div>
-    </div>
-
-    <div class="d-grid gap-2">
-      <button class="btn btn-lg btn-indicar">Solicitar Indicação</button>
+      <div class="mt-3 row">
+        <div class="d-grid gap-2">
+          <button class="btn btn-lg btn-indicar">Solicitar Indicação</button>
+        </div>
+      </div>
     </div>
   </body>
 

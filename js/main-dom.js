@@ -31,6 +31,7 @@ function toogleCard(labelWrapper, bMarcar) {
   if (bMarcar) {
     $label.addClass("label-selecionado");
     $divCard.addClass("card-selecionado");
+    $divCard.addClass("ripple");
   } else {
     $label.removeClass("label-selecionado");
     $divCard.removeClass("card-selecionado");

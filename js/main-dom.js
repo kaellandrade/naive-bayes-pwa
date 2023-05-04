@@ -1,12 +1,13 @@
 $(document).ready(function () {
-  configurarInputsCategoria();
+  configurarInputsCategoria("categoria");
+  configurarInputsCategoria("idade");
 });
 
 /**
  * Configura a lógicas dos inputs para categorias.
  */
-function configurarInputsCategoria() {
-  const $inputsCategorias = $("input[name=categoria]");
+function configurarInputsCategoria(sCategoria) {
+  const $inputsCategorias = $(`input[name=${sCategoria}]`);
   $inputsCategorias.change(function () {
     $inputsCategorias.each(function () {
       if (this.checked) {

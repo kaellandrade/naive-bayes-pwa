@@ -148,6 +148,7 @@ section {
 .title-section {
   font-size: 1rem;
   font-weight: bold;
+  color: #333333;
 }
 
 .card-wrapper {
@@ -238,6 +239,14 @@ label>input {
   font-weight: bold;
   border-radius: 12px;
   border: white 2px solid;
+  animation-name: fade-btn-reverse;
+  animation-duration: 500ms;
+}
+
+.btn-indicar:hover {
+  animation: 500ms ease-out forwards, fade-btn 500ms ease-out forwards;
+  background: #F16767;
+  color: white;
 }
 
 .btn-label {
@@ -250,6 +259,16 @@ label>input {
   align-items: center;
 }
 
+@keyframes fade-btn {
+  0% {
+    background-color: #A459D1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 @keyframes fade {
   0% {
     background-color: #CECCCC;
@@ -257,6 +276,17 @@ label>input {
 
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes fade-btn-reverse {
+  0% {
+    background-color: #F16767;
+  }
+
+  100% {
+    opacity: 1;
+    background-color: #A459D1;
   }
 }
 
@@ -271,6 +301,10 @@ label>input {
     padding-top: 1rem;
     background-color: #ffffff4d;
     border-radius: 12px;
+  }
+
+  .logo>img {
+    width: 30%;
   }
 }
 

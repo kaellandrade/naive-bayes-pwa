@@ -1,8 +1,7 @@
 import pandas as pd
-import chardet
 
 
-df_dados_tratados = pd.read_csv("../Dados/DADOS_TRATADOS_SEM_ACENTOS.csv", encoding='utf-8')
+df_dados_tratados = pd.read_csv("../Dados/DADOS_TRATADOS.csv", encoding='utf-8')
 
 df_usuarios = pd.read_csv("../Dados/USUARIOS.csv")
 
@@ -18,8 +17,9 @@ for index, row in df_usuarios.iterrows():
 
     # Adicionar as novas linhas ao final do arquivo existente
     with open("../Dados/DADOS_TRATADOS_SEM_REPETIR_PRODUTO.csv", mode='a', newline='') as f:
-        df_x.to_csv(f, header=False, index=False)
+        df_x.to_csv(f, encoding='utf-8', header=False, index=False)
 
     print(cont)
     cont += 1
+
 

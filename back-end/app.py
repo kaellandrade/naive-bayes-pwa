@@ -1,5 +1,7 @@
 from flask import Flask, jsonify, request
 
+from main import DataBaseQuerys
+
 
 
 from flask_cors import CORS
@@ -7,13 +9,6 @@ from flask_cors import CORS
 app = Flask(__name__)
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
-# @app.route('/')
-# def hello_world():
-#   name = request.args.get('name')
-
-#   print(name)
-#   data = {'message': 'Hello, world!'}
-#   return jsonify(data)
 
 class ProxyPetIndica:
 
@@ -32,10 +27,25 @@ class ProxyPetIndica:
     data = self.data_clients
     key = 'profiles'
 
-    if data.get('key'):
+    if data.get(key):
       return self.data_clients[key]
     return []
+  
+
+  def get_response(self, resData: list) -> dict:
+    if len(resData):
+      return self.__get_responseDTO(resData, 'Operação realizada com sucesso.')
     
+    return self.__get_responseDTO(resData, 'Nenhum dado foi encontrado.')
+       
+  
+  def __get_responseDTO(resData: list, msg: str):
+    return {
+        'result': {
+          'Message: ': msg,
+          'dados': resData
+        }
+    }
 
 
   def not_is_None(self) -> bool:
@@ -46,6 +56,70 @@ class ProxyPetIndica:
     return all(val is not None for val in self.profiles)
   
 
+
+class DBQuerys:
+
+  def __init__(self, profiles: list) -> None:
+    self.profiles = profiles
+    self.bd = DataBaseQuerys
+
+  def queryColaborativeFilteringDuplicate(self):
+    """
+    Este metodo eh uma consulta que retorna uma lista de produtos
+    sua categoria, a quantidade de venda e o percentual que vendeu 
+
+    PRECISO REMOVER ESSA REPETICAO DE DADOS
+    """
+    return '''
+        SELECT
+        p.CODCLI,
+        p.PRODUTO,
+        p.DEPARTAMENTO,
+        p.QT_VENDA,
+        p.QT_VENDA * 100.0 / s.TOTAL AS PERCENTUAL
+      FROM
+        petIndica.allData p
+      JOIN
+        (
+          SELECT CODCLI, SUM(QT_VENDA) AS TOTAL
+          FROM petIndica.allData
+          GROUP BY CODCLI
+        ) s
+      ON
+        p.CODCLI = s.CODCLI
+      WHERE
+        p.CODCLI IN ({});
+    '''.format(self.codes_profiles)
+  
+
+  def queryColaborativeFiltering(self):
+    """
+
+    ESSA EH A CONSULTA ORIGINAL ACHO QUE TA FUNCIONANDO CORRETAMENTE
+    """
+    return '''
+        SELECT
+          CODCLI,
+          PRODUTO,
+          DEPARTAMENTO,
+          SUM(QT_VENDA) AS TOTAL_VENDIDO,
+          COUNT(*) AS NUM_VENDAS,
+          100 * SUM(QT_VENDA) / (SELECT SUM(QT_VENDA) FROM petIndica.allData) AS PERCENT_VENDIDO
+        FROM
+          petIndica.allData p
+        WHERE
+          CODCLI IN ({})
+        GROUP BY
+          CODCLI,
+          PRODUTO,
+          DEPARTAMENTO
+        ORDER BY
+          CODCLI
+    '''.format(self.codes_profiles)
+  
+  @property
+  def codes_profiles(self):
+    return ','.join(str(cod) for cod in self.profiles)
 
 
 class CommendProducts:
@@ -59,17 +133,10 @@ class CommendProducts:
     if len(profiles):
       query = "SELECT * FROM products WHERE code IN %s"
 
-    return 'aqu1'
+   
+    return jsonify(proxy.get_response([])), 200
 
 
-  
-
-    
-
-
-
-
-# all_values_not_none = all(val is not None for val in my_dict.values())
 
 
 if __name__ == '__main__':
@@ -78,3 +145,47 @@ if __name__ == '__main__':
   host = '0.0.0.0'
   port = 5000
   app.run(port=port)
+
+
+
+
+"""
+SELECT
+  p.CODCLI,
+  p.PRODUTO,
+  p.DEPARTAMENTO,
+  p.QT_VENDA * 100.0 / s.TOTAL AS PERCENTUAL
+FROM
+  petIndica.allData p
+JOIN
+  (
+    SELECT CODCLI, SUM(QT_VENDA) AS TOTAL
+    FROM petIndica.allData
+    GROUP BY CODCLI
+  ) s
+ON
+  p.CODCLI = s.CODCLI
+WHERE
+  p.CODCLI IN (302501, 30491);
+  
+  
+  
+SELECT
+  CODCLI,
+  PRODUTO,
+  DEPARTAMENTO,
+  SUM(QT_VENDA) AS TOTAL_VENDIDO,
+  COUNT(*) AS NUM_VENDAS,
+  100 * SUM(QT_VENDA) / (SELECT SUM(QT_VENDA) FROM petIndica.allData) AS PERCENT_VENDIDO
+FROM
+  petIndica.allData p
+WHERE
+  CODCLI IN (302501, 30491)
+GROUP BY
+  CODCLI,
+  PRODUTO,
+  DEPARTAMENTO
+ORDER BY
+  CODCLI
+  
+"""

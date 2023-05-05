@@ -193,8 +193,13 @@ section {
 .card-selecionado {
   background-color: #A459D1;
   color: white;
-  animation: 1250ms ease-out forwards, fade 1500ms ease-out forwards;
+  animation: 500ms ease-out forwards, fade 500ms ease-out forwards;
 
+}
+
+label {
+  border: 3px solid transparent;
+  padding: 2px;
 }
 
 label>input {
@@ -310,6 +315,14 @@ label>input {
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+  .row-categoria {
+    justify-content: center;
+  }
+
+  section {
+    width: 830px !important;
+  }
+
   .card-wrapper {
     overflow-x: hidden;
   }

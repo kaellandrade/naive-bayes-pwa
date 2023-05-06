@@ -6,12 +6,13 @@ DATABASE = "bd_petIndica"
 USER = "gabrielbtera"
 PASS = "biel1234"
 
-class DataBaseQuerys:
-    def __init__(self, host: str, database: str, user: str, password: str) -> None:
-        self.host = host
-        self.database = database
-        self.user = user
-        self.password = password
+#host: str, database: str, user: str, password: str
+class DataBaseCore:
+    def __init__(self) -> None:
+        self.host = HOST
+        self.database = DATABASE
+        self.user = USER
+        self.password = PASS
     
     def run_query(self, query):
         print('estabelecendo conexao...')
@@ -31,8 +32,8 @@ class DataBaseQuerys:
         return results
 
 
-dataQuery = DataBaseQuerys(HOST, DATABASE, USER, PASS)
+# dataQuery = DataBaseCore()
 
-result = dataQuery.run_query("SELECT * FROM petIndica.allData")
+# result = dataQuery.run_query("SELECT * FROM petIndica.allData")
 
-print(result)
+# print(result)

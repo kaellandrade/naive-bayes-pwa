@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
 
-from main import DataBaseQuerys
+from main import DataBaseCore
 
 
 
@@ -12,14 +12,9 @@ cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
 class ProxyPetIndica:
 
-  def __init__(self,data_clients: dict,  name_table: str) -> None:
-    self._name_table = name_table
+  def __init__(self,data_clients: dict) -> None:
     self.data_clients = data_clients
 
-
-  @property
-  def name_table(self)-> str:
-    return self._name_table
   
   @property
   def profiles(self) -> list:
@@ -39,29 +34,24 @@ class ProxyPetIndica:
     return self.__get_responseDTO(resData, 'Nenhum dado foi encontrado.')
        
   
-  def __get_responseDTO(resData: list, msg: str):
+  def __get_responseDTO(self, resData: list, msg: str):
+
     return {
         'result': {
           'Message: ': msg,
-          'dados': resData
+          'data': resData
         }
     }
 
-
-  def not_is_None(self) -> bool:
-    """
-    Este metodo verifica se todos os valores de um dicionario 
-    sao diferentes de none
-    """
-    return all(val is not None for val in self.profiles)
   
 
 
 class DBQuerys:
 
-  def __init__(self, profiles: list) -> None:
+  def __init__(self, profiles: list, name_table: str) -> None:
     self.profiles = profiles
-    self.bd = DataBaseQuerys
+    self.name_table = name_table
+    self.bd = DataBaseCore()
 
   def queryColaborativeFilteringDuplicate(self):
     """
@@ -78,7 +68,7 @@ class DBQuerys:
         p.QT_VENDA,
         p.QT_VENDA * 100.0 / s.TOTAL AS PERCENTUAL
       FROM
-        petIndica.allData p
+        {} p
       JOIN
         (
           SELECT CODCLI, SUM(QT_VENDA) AS TOTAL
@@ -89,7 +79,7 @@ class DBQuerys:
         p.CODCLI = s.CODCLI
       WHERE
         p.CODCLI IN ({});
-    '''.format(self.codes_profiles)
+    '''.format(self.name_table, self.codes_profiles)
   
 
   def queryColaborativeFiltering(self):
@@ -106,7 +96,7 @@ class DBQuerys:
           COUNT(*) AS NUM_VENDAS,
           100 * SUM(QT_VENDA) / (SELECT SUM(QT_VENDA) FROM petIndica.allData) AS PERCENT_VENDIDO
         FROM
-          petIndica.allData p
+          {} p
         WHERE
           CODCLI IN ({})
         GROUP BY
@@ -115,11 +105,16 @@ class DBQuerys:
           DEPARTAMENTO
         ORDER BY
           CODCLI
-    '''.format(self.codes_profiles)
+    '''.format(self.name_table, self.codes_profiles)
   
   @property
   def codes_profiles(self):
     return ','.join(str(cod) for cod in self.profiles)
+
+  def run(self):
+    query = self.queryColaborativeFiltering()
+    result = self.bd.run_query(query)
+    print(result)
 
 
 class CommendProducts:
@@ -127,11 +122,12 @@ class CommendProducts:
   @staticmethod
   @app.route('/', methods=['POST'])
   def get_Products():
-    proxy = ProxyPetIndica(request.json, 'petIndica.allData')
+    proxy = ProxyPetIndica(request.json)
     profiles = proxy.profiles
 
     if len(profiles):
-      query = "SELECT * FROM products WHERE code IN %s"
+      queryBD = DBQuerys(profiles, 'petIndica.allData')
+      queryBD.run()
 
    
     return jsonify(proxy.get_response([])), 200

@@ -21,181 +21,256 @@
   </head>
 
   <body>
-    <div class="container">
-      <div class="row-categoria mt-3 row text-center">
-        <div class="col-12">
-          <div class="logo">
-            <img src="./imgs/Logo.svg" alt="logo" />
+    <form id="fomulario-home">
+      <div class="container">
+        <div class="row-categoria mt-3 row text-center">
+          <div class="col-12">
+            <div class="logo">
+              <img src="./imgs/Logo.svg" alt="logo" />
+            </div>
+          </div>
+        </div>
+        <div class="row-categoria mt-3 row">
+          <section>
+            <label
+              title="Campo obrigatório, escolha uma das categorias listadas logo abaixo."
+            >
+              <h3 class="title-section">
+                Escolha uma categoria <span>*</span>
+              </h3>
+            </label>
+            <div class="card-wrapper">
+              <label class="label-card" for="dog-input">
+                <input
+                  type="radio"
+                  name="categoria"
+                  id="dog-input"
+                  value="cachorro"
+                />
+                <div class="card">
+                  <div>
+                    <div class="card-body">
+                      <div class="card-img-label">
+                        <img src="/imgs/imgs_cards/dog.svg" alt="imagem" />
+                        <div class="rodape-label-card">Cachorro</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </label>
+              <label class="label-card" for="cat-input">
+                <input
+                  type="radio"
+                  name="categoria"
+                  id="cat-input"
+                  value="gato"
+                />
+                <div class="card">
+                  <div>
+                    <div class="card-body">
+                      <div class="card-img-label">
+                        <img src="/imgs/imgs_cards/cat.svg" alt="imagem" />
+                        <div class="rodape-label-card">Gato</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </label>
+              <label class="label-card" for="cat-bird">
+                <input
+                  type="radio"
+                  name="categoria"
+                  id="cat-bird"
+                  value="passaro"
+                />
+                <div class="card">
+                  <div>
+                    <div class="card-body">
+                      <div class="card-img-label">
+                        <img src="/imgs/imgs_cards/bird.svg" alt="imagem" />
+                        <div class="rodape-label-card">Pássaro</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </label>
+              <label class="label-card" for="reptiles-input">
+                <input
+                  type="radio"
+                  name="categoria"
+                  id="reptiles-input"
+                  value="reptil"
+                />
+                <div class="card">
+                  <div>
+                    <div class="card-body">
+                      <div class="card-img-label">
+                        <img src="/imgs/imgs_cards/turtle.svg" alt="imagem" />
+                        <div class="rodape-label-card">Réptil</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </label>
+              <label class="label-card" for="fish-input">
+                <input
+                  type="radio"
+                  name="categoria"
+                  id="fish-input"
+                  value="peixe"
+                />
+                <div class="card">
+                  <div>
+                    <div class="card-body">
+                      <div class="card-img-label">
+                        <img src="/imgs/imgs_cards/fish.svg" alt="imagem" />
+                        <div class="rodape-label-card">Peixe</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </label>
+              <label class="label-card" for="rodents-input">
+                <input
+                  type="radio"
+                  name="categoria"
+                  id="rodents-input"
+                  value="roedor"
+                />
+                <div class="card">
+                  <div>
+                    <div class="card-body">
+                      <div class="card-img-label">
+                        <img src="/imgs/imgs_cards/rabbit.svg" alt="imagem" />
+                        <div class="rodape-label-card">Roedor</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </label>
+            </div>
+          </section>
+        </div>
+        <div class="row-categoria mt-3 row">
+          <section>
+            <label
+              title="Campo obrigatório, escolha um dos portes listados logo abaixo."
+            >
+              <h3 class="title-section">
+                Informe o porte do pet <span>*</span>
+              </h3>
+            </label>
+            <div class="card-wrapper">
+              <label class="label-card" for="porte-pequeno">
+                <input
+                  type="radio"
+                  name="porte"
+                  id="porte-pequeno"
+                  value="pequeno"
+                />
+                <div class="card card-idade">
+                  <div class="rodape-label-card">Pequeno</div>
+                </div>
+              </label>
+              <label class="label-card" for="porte-medio">
+                <input
+                  type="radio"
+                  name="porte"
+                  id="porte-medio"
+                  value="medio"
+                />
+                <div class="card card-idade">
+                  <div class="rodape-label-card">Médio</div>
+                </div>
+              </label>
+              <label class="label-card" for="porte-grande">
+                <input
+                  type="radio"
+                  name="porte"
+                  id="porte-grande"
+                  value="grande"
+                />
+                <div class="card card-idade">
+                  <div class="rodape-label-card">Grande</div>
+                </div>
+              </label>
+              <label class="label-card" for="porte-gigante">
+                <input
+                  type="radio"
+                  name="porte"
+                  id="porte-gigante"
+                  value="gigante"
+                />
+                <div class="card card-idade">
+                  <div class="rodape-label-card">Gigante</div>
+                </div>
+              </label>
+            </div>
+          </section>
+        </div>
+        <div class="row-categoria mt-3 row">
+          <section>
+            <label
+              class="label-section"
+              title="Campo obrigatório, escolha um das idades listadas logo a baixo."
+            >
+              <h3 class="title-section">Selecione a idade <span>*</span></h3>
+            </label>
+            <div class="card-wrapper">
+              <label class="label-card" for="idade-pequeno">
+                <input
+                  type="radio"
+                  name="idade"
+                  id="idade-pequeno"
+                  value="filhote"
+                />
+                <div class="card card-idade">
+                  <div class="rodape-label-card">Filhote</div>
+                </div>
+              </label>
+              <label class="label-card" for="idade-adulto">
+                <input
+                  type="radio"
+                  name="idade"
+                  id="idade-adulto"
+                  value="adulto"
+                />
+                <div class="card card-idade">
+                  <div class="rodape-label-card">Adulto</div>
+                </div>
+              </label>
+              <label class="label-card" for="idade-senior">
+                <input
+                  type="radio"
+                  name="idade"
+                  id="idade-senior"
+                  value="senior"
+                />
+                <div class="card card-idade">
+                  <div class="rodape-label-card">Sênior</div>
+                </div>
+              </label>
+            </div>
+          </section>
+        </div>
+        <div class="mt-5 row mb-3">
+          <div class="col-12 col-md-6 col-lg-4 mx-auto">
+            <div class="d-grid gap-2">
+              <button
+                class="btn btn-lg btn-indicar"
+                disabled="true"
+                id="btn-enviar"
+              >
+                <div>
+                  <h3 class="btn-label">Solicitar Indicação</h3>
+                  <span class="material-symbols-rounded"> pets </span>
+                </div>
+              </button>
+            </div>
           </div>
         </div>
       </div>
-      <div class="row-categoria mt-3 row">
-        <section>
-          <label
-            title="Campo obrigatório, escolha uma das categorias listadas logo abaixo."
-          >
-            <h3 class="title-section">Escolha uma categoria <span>*</span></h3>
-          </label>
-          <div class="card-wrapper">
-            <label class="label-card" for="dog-input">
-              <input type="radio" name="categoria" id="dog-input" />
-              <div class="card">
-                <div>
-                  <div class="card-body">
-                    <div class="card-img-label">
-                      <img src="/imgs/imgs_cards/dog.svg" alt="imagem" />
-                      <div class="rodape-label-card">Cachorro</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </label>
-            <label class="label-card" for="cat-input">
-              <input type="radio" name="categoria" id="cat-input" />
-              <div class="card">
-                <div>
-                  <div class="card-body">
-                    <div class="card-img-label">
-                      <img src="/imgs/imgs_cards/cat.svg" alt="imagem" />
-                      <div class="rodape-label-card">Gato</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </label>
-            <label class="label-card" for="cat-bird">
-              <input type="radio" name="categoria" id="cat-bird" />
-              <div class="card">
-                <div>
-                  <div class="card-body">
-                    <div class="card-img-label">
-                      <img src="/imgs/imgs_cards/bird.svg" alt="imagem" />
-                      <div class="rodape-label-card">Pássaro</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </label>
-            <label class="label-card" for="reptiles-input">
-              <input type="radio" name="categoria" id="reptiles-input" />
-              <div class="card">
-                <div>
-                  <div class="card-body">
-                    <div class="card-img-label">
-                      <img src="/imgs/imgs_cards/turtle.svg" alt="imagem" />
-                      <div class="rodape-label-card">Répteis</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </label>
-            <label class="label-card" for="fish-input">
-              <input type="radio" name="categoria" id="fish-input" />
-              <div class="card">
-                <div>
-                  <div class="card-body">
-                    <div class="card-img-label">
-                      <img src="/imgs/imgs_cards/fish.svg" alt="imagem" />
-                      <div class="rodape-label-card">Peixes</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </label>
-            <label class="label-card" for="rodents-input">
-              <input type="radio" name="categoria" id="rodents-input" />
-              <div class="card">
-                <div>
-                  <div class="card-body">
-                    <div class="card-img-label">
-                      <img src="/imgs/imgs_cards/rabbit.svg" alt="imagem" />
-                      <div class="rodape-label-card">Roedores</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </label>
-          </div>
-        </section>
-      </div>
-      <div class="row-categoria mt-3 row">
-        <section>
-          <label
-            title="Campo obrigatório, escolha um dos portes listados logo abaixo."
-          >
-            <h3 class="title-section">Informe o porte do pet <span>*</span></h3>
-          </label>
-          <div class="card-wrapper">
-            <label class="label-card" for="porte-pequeno">
-              <input type="radio" name="porte" id="porte-pequeno" />
-              <div class="card card-idade">
-                <div class="rodape-label-card">Pequeno</div>
-              </div>
-            </label>
-            <label class="label-card" for="porte-medio">
-              <input type="radio" name="porte" id="porte-medio" />
-              <div class="card card-idade">
-                <div class="rodape-label-card">Médio</div>
-              </div>
-            </label>
-            <label class="label-card" for="porte-grande">
-              <input type="radio" name="porte" id="porte-grande" />
-              <div class="card card-idade">
-                <div class="rodape-label-card">Grande</div>
-              </div>
-            </label>
-            <label class="label-card" for="porte-gigante">
-              <input type="radio" name="porte" id="porte-gigante" />
-              <div class="card card-idade">
-                <div class="rodape-label-card">Gigante</div>
-              </div>
-            </label>
-          </div>
-        </section>
-      </div>
-      <div class="row-categoria mt-3 row">
-        <section>
-          <label
-            class="label-section"
-            title="Campo obrigatório, escolha um das idades listadas logo a baixo."
-          >
-            <h3 class="title-section">Selecione a idade <span>*</span></h3>
-          </label>
-          <div class="card-wrapper">
-            <label class="label-card" for="idade-pequeno">
-              <input type="radio" name="idade" id="idade-pequeno" />
-              <div class="card card-idade">
-                <div class="rodape-label-card">Filhote</div>
-              </div>
-            </label>
-            <label class="label-card" for="idade-adulto">
-              <input type="radio" name="idade" id="idade-adulto" />
-              <div class="card card-idade">
-                <div class="rodape-label-card">Adulto</div>
-              </div>
-            </label>
-            <label class="label-card" for="idade-senior">
-              <input type="radio" name="idade" id="idade-senior" />
-              <div class="card card-idade">
-                <div class="rodape-label-card">Sênior</div>
-              </div>
-            </label>
-          </div>
-        </section>
-      </div>
-      <div class="mt-5 row mb-3">
-        <div class="col-12 col-md-6 col-lg-4 mx-auto">
-          <div class="d-grid gap-2">
-            <button class="btn btn-lg btn-indicar">
-              <div>
-                <h3 class="btn-label">Solicitar Indicação</h3>
-                <span class="material-symbols-rounded"> pets </span>
-              </div>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+    </form>
   </body>
 
   <!-- <script>

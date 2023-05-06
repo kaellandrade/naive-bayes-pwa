@@ -10,6 +10,7 @@ $(document).ready(function () {
 function configurarInputsCategoria(sCategoria) {
   const $inputsCategorias = $(`input[name=${sCategoria}]`);
   $inputsCategorias.change(function () {
+    validarForm();
     $inputsCategorias.each(function () {
       if (this.checked) {
         toogleCard(this, true);
@@ -35,5 +36,18 @@ function toogleCard(labelWrapper, bMarcar) {
   } else {
     $label.removeClass("label-selecionado");
     $divCard.removeClass("card-selecionado");
+  }
+}
+
+/**
+ * Valida o formulário.
+ */
+function validarForm() {
+  const categoria = $("input:radio[name='categoria']:checked").val();
+  const porte = $("input:radio[name='porte']:checked").val();
+  const idade = $("input:radio[name='idade']:checked").val();
+
+  if (categoria && porte && idade) {
+    $("#btn-enviar").prop("disabled", false);
   }
 }

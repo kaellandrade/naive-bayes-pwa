@@ -32,7 +32,10 @@ class ProxyPetIndica:
       return self.__get_responseDTO(resData, 'Operação realizada com sucesso.')
     
     return self.__get_responseDTO(resData, 'Nenhum dado foi encontrado.')
-       
+  
+
+  def formating_send_files(self, files: list) -> list:
+    return [{'codigoCli': cod, "nome": nome, "departamento": dep, "percentual": percent} for cod, nome, dep, percent in files]
   
   def __get_responseDTO(self, resData: list, msg: str):
 
@@ -92,8 +95,6 @@ class DBQuerys:
           CODCLI,
           PRODUTO,
           DEPARTAMENTO,
-          SUM(QT_VENDA) AS TOTAL_VENDIDO,
-          COUNT(*) AS NUM_VENDAS,
           100 * SUM(QT_VENDA) / (SELECT SUM(QT_VENDA) FROM petIndica.allData) AS PERCENT_VENDIDO
         FROM
           {} p
@@ -114,7 +115,7 @@ class DBQuerys:
   def run(self):
     query = self.queryColaborativeFiltering()
     result = self.bd.run_query(query)
-    print(result)
+    return result
 
 
 class CommendProducts:
@@ -127,7 +128,9 @@ class CommendProducts:
 
     if len(profiles):
       queryBD = DBQuerys(profiles, 'petIndica.allData')
-      queryBD.run()
+      result = queryBD.run()
+      response = proxy.formating_send_files(result)
+      return jsonify(proxy.get_response(response)), 200
 
    
     return jsonify(proxy.get_response([])), 200

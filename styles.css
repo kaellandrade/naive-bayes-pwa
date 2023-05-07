@@ -429,7 +429,8 @@ label>input {
     justify-content: center;
   }
 
-  section {
+  section,
+  .barra-navegacao {
     width: 830px !important;
   }
 

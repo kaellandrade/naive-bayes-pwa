@@ -292,6 +292,20 @@ label>input {
   background-color: #FFFFFF;
 }
 
+.btn-ajuda {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #A459D1;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.btn-ajuda:hover {
+  animation: 500ms;
+  color: #F16767;
+}
+
 .btn-voltar:hover {
   animation: 500ms ease-out;
   background: #F16767;

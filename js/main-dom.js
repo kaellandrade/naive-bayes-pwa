@@ -4,7 +4,6 @@ $(document).ready(function () {
   configurarInputsCategoria("porte");
   configurarTooltip();
   configurarBotalVoltar();
-  solicitarIndicacao();
 });
 
 /**

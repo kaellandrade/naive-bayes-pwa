@@ -4,7 +4,6 @@ $(document).ready(function () {
   configurarInputsCategoria("porte");
   configurarTooltip();
   configurarBotalVoltar();
-  solicitarIndicacao();
 });
 
 /**
@@ -89,15 +88,5 @@ function irParaTelaSugestoes() {
 function configurarBotalVoltar() {
   $("#btn-voltar").click(function () {
     irParaHome();
-  });
-}
-
-/**
- * Configura o botão de solicitar indicação.
- */
-function solicitarIndicacao() {
-  $("#btn-enviar").click(function (event) {
-    event.preventDefault();
-    irParaTelaSugestoes();
   });
 }

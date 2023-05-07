@@ -281,34 +281,32 @@
       <!-- Essa DIV será exibida quando a resposta chegar e o form será ocultado -->
       <div class="resposta" id="respota-div">
         <div class="row-resposta mt-3 row">
-          <div class="row">
-            <div class="col-12">
-              <nav class="navbar barra-navegacao">
-                <div class="btn-voltar-div">
-                  <button class="btn btn-voltar" id="btn-voltar">
-                    <span class="material-symbols-rounded">arrow_back_ios</span>
-                  </button>
-                </div>
-                <div class="logo-nav">
-                  <img src="imgs/PetIndica.svg" alt="PetIndica" />
-                </div>
-                <div
+          <div class="col-12">
+            <nav class="navbar barra-navegacao">
+              <div class="btn-voltar-div">
+                <button class="btn btn-voltar" id="btn-voltar">
+                  <span class="material-symbols-rounded">arrow_back_ios</span>
+                </button>
+              </div>
+              <div class="logo-nav">
+                <img src="imgs/PetIndica.svg" alt="PetIndica" />
+              </div>
+              <div
                 data-bs-toggle="tooltip"
                 data-bs-placement="right"
                 data-bs-title="Clique aqui para saber mais sobre nosso sistema de recomendações."
+              >
+                <button
+                  class="btn btn-lg btn-ajuda"
+                  id="btn-ajuda"
+                  data-bs-custom-class="tooltip-custom"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
                 >
-                  <button
-                    class="btn btn-lg btn-ajuda"
-                    id="btn-ajuda"
-                    data-bs-custom-class="tooltip-custom"
-                    data-bs-toggle="modal" 
-                    data-bs-target="#exampleModal"
-                  >
-                    <span class="material-symbols-rounded"> info </span>
-                  </button>
-                </div>
-              </nav>
-            </div>
+                  <span class="material-symbols-rounded"> info </span>
+                </button>
+              </div>
+            </nav>
           </div>
         </div>
         <div class="row-resposta mt-3 row">
@@ -377,23 +375,41 @@
           </section>
         </div>
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Sobre nosso sistema de recomendações</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                  Sobre nosso sistema de recomendações
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
               </div>
-              <div class="modal-body">
-                ...
-              </div>
+              <div class="modal-body">...</div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
   </body>
 
   <!-- <script>

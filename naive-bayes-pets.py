@@ -13,20 +13,6 @@ from sklearn.metrics import roc_auc_score
 from sklearn.preprocessing import OneHotEncoder
 
 
-FILE_DADOS_BASE = './Dados/DADOS_CLIENTE_X.csv'
-FILE_DADOS_TREINADOS = 'DADOS_MODEL.pkl'  # arquivo onde será salvo o modelo treinado
-
-
-class IO:
-    """
-    Classe para representar as operações de IO
-    """
-    @staticmethod
-    def readDataCSV():
-        dataBase = pd.read_csv(FILE_DADOS_BASE)
-        return dataBase
-
-
 class NaiveBayes:
     x_atributos = None
     y_classes = None

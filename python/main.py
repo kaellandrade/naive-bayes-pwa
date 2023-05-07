@@ -8,15 +8,9 @@ from pyodide.ffi import create_proxy # Cria ao proxy
 url = "https://api.agify.io?name=meelad"
 
 async def getData(*args):
-    response = await fetch(url, {'method': 'GET'})
-    json = await response.json()
-    console.log('json', json)
-    pre_element = document.createElement("h2")
-    pre_element.id = "idade"
-    pre_element.textContent = str(json.age)
-    elementoAntigo = document.getElementById("idade");
-    elementoAntigo.parentNode.replaceChild(pre_element, elementoAntigo);
-    return json
+    inpustDados = inputToJSON(['categoria', 'porte', 'idade'])
+    console.log(inpustDados)
+    # return json
     
 
 async def main():
@@ -35,16 +29,31 @@ def f(*args):
     
     
 def getValue():
-    btn = document.getElementById('button-id')
+    btn = document.getElementById('btn-enviar')
 
     proxy_f = create_proxy(getData, roundtrip=True)
-    btn = document.getElementById('button-id')
+    btn = document.getElementById('btn-enviar')
     btn.addEventListener('click', proxy_f)
     
     
 
-getValue()
+def inputToJSON(list):
+    values = {}
+    def getChecked(stringCampo):
+        stringSlector = 'input[name^=\"'+stringCampo+'\"]'
+        listaInputs = document.querySelectorAll(stringSlector)
+        for i in listaInputs:
+            if(i.checked):
+                return i.value
+    for i in list:
+       values[i] =  getChecked(i)
+       
+    
+    
+    return str(values)
 
+
+getValue()
 
 # btn.removeEventListener('click', proxy_f)
 # proxy_f.destroy()

@@ -3,6 +3,8 @@ $(document).ready(function () {
   configurarInputsCategoria("idade");
   configurarInputsCategoria("porte");
   configurarTooltip();
+  configurarBotalVoltar();
+  solicitarIndicacao();
 });
 
 /**
@@ -63,4 +65,39 @@ function configurarTooltip() {
   const tooltipList = [...tooltipTriggerList].map(
     (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
   );
+}
+
+/**
+ * Volta para tela inicial.
+ */
+function irParaHome() {
+  $("#respota-div").hide();
+  $("#fomulario-home").show();
+}
+
+/**
+ * Vai para tela de sugestões.
+ */
+function irParaTelaSugestoes() {
+  $("#respota-div").show();
+  $("#fomulario-home").hide();
+}
+
+/**
+ * Configura o botão de voltar da tela de indicações.
+ */
+function configurarBotalVoltar() {
+  $("#btn-voltar").click(function () {
+    irParaHome();
+  });
+}
+
+/**
+ * Configura o botão de solicitar indicação.
+ */
+function solicitarIndicacao() {
+  $("#btn-enviar").click(function (event) {
+    event.preventDefault();
+    irParaTelaSugestoes();
+  });
 }

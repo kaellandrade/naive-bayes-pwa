@@ -353,6 +353,11 @@ label>input {
   color: #000000;
 }
 
+.section-descricao {
+  background-color: transparent;
+  font-size: 1.2rem;
+}
+
 @keyframes fade-btn {
   0% {
     background-color: #A459D1;
@@ -406,7 +411,7 @@ label>input {
 @media (min-width: 992px) {
 
   .row-categoria,
-  .row-respota {
+  .row-resposta {
     justify-content: center;
   }
 

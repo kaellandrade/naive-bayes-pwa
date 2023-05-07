@@ -21,8 +21,8 @@
   </head>
 
   <body>
-    <form id="fomulario-home">
-      <div class="container">
+    <div class="container">
+      <form id="fomulario-home" class="formulario-principal-home">
         <div class="row-categoria mt-3 row text-center">
           <div class="col-12">
             <div class="logo">
@@ -33,7 +33,10 @@
         <div class="row-categoria mt-3 row">
           <section>
             <label
-              title="Campo obrigatório, escolha uma das categorias listadas logo abaixo."
+              data-bs-custom-class="tooltip-custom"
+              data-bs-toggle="tooltip"
+              data-bs-placement="right"
+              data-bs-title="Campo obrigatório, escolha uma das categorias listadas logo abaixo."
             >
               <h3 class="title-section">
                 Escolha uma categoria <span>*</span>
@@ -154,7 +157,9 @@
         <div class="row-categoria mt-3 row">
           <section>
             <label
-              title="Campo obrigatório, escolha um dos portes listados logo abaixo."
+              data-bs-toggle="tooltip"
+              data-bs-placement="right"
+              data-bs-title="Campo obrigatório, escolha um dos portes listados logo abaixo."
             >
               <h3 class="title-section">
                 Informe o porte do pet <span>*</span>
@@ -211,8 +216,10 @@
         <div class="row-categoria mt-3 row">
           <section>
             <label
+              data-bs-toggle="tooltip"
+              data-bs-placement="right"
+              data-bs-title="Campo obrigatório, escolha um das idades listadas logo a baixo."
               class="label-section"
-              title="Campo obrigatório, escolha um das idades listadas logo a baixo."
             >
               <h3 class="title-section">Selecione a idade <span>*</span></h3>
             </label>
@@ -269,8 +276,86 @@
             </div>
           </div>
         </div>
+      </form>
+
+      <!-- Essa DIV será exibida quando a respota chegar e o form será ocultado -->
+      <div class="resposta">
+        <div class="row-resposta mt-3 row">
+          <div class="row">
+            <div class="col-12">
+              <nav class="navbar barra-navegacao">
+                <div class="btn-voltar-div">
+                  <button class="btn btn-voltar" id="btn-voltar">
+                    <span class="material-symbols-rounded">arrow_back_ios</span>
+                  </button>
+                </div>
+                <div class="logo-nav">
+                  <img src="imgs/PetIndica.svg" alt="PetIndica" />
+                </div>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <div class="row-respota mt-3 row">
+          <section class="section-departamento">
+            <div class="card-departamento departamento-card-alimentos">
+              <div class="card-img-departamento">
+                <img
+                  src="imgs/imgs_departamentos/alimentos.svg"
+                  alt="Alimentos"
+                />
+              </div>
+              <div class="card-texto-departamento">
+                <h3 class="title-section-departamento">Alimentos</h3>
+              </div>
+            </div>
+            <ol>
+              <li>Ração whiskas</li>
+              <li>Nestlé Purina Friskies Ração</li>
+              <li>Ração Úmida Special Cat Ultralife</li>
+            </ol>
+          </section>
+        </div>
+        <div class="row-respota mt-3 row">
+          <section class="section-departamento">
+            <div class="card-departamento departamento-card-higiene">
+              <div class="card-img-departamento">
+                <img
+                  src="imgs/imgs_departamentos/higiene.svg"
+                  alt="Alimentos"
+                />
+              </div>
+              <div class="card-texto-departamento">
+                <h3 class="title-section-departamento">Higiene & Beleza</h3>
+              </div>
+            </div>
+            <ol>
+              <li>Ração whiskas</li>
+              <li>Nestlé Purina Friskies Ração</li>
+              <li>Ração Úmida Special Cat Ultralife</li>
+            </ol>
+          </section>
+        </div>
+        <div class="row-respota mt-3 row">
+          <section class="section-departamento">
+            <div class="card-departamento departamento-card-bazar">
+              <div class="card-img-departamento">
+                <img src="imgs/imgs_departamentos/Bazar.svg" alt="Alimentos" />
+              </div>
+              <div class="card-texto-departamento">
+                <h3 class="title-section-departamento">Bazar</h3>
+              </div>
+            </div>
+            <ol>
+              <li>Ração whiskas</li>
+              <li>Nestlé Purina Friskies Ração</li>
+              <li>Ração Úmida Special Cat Ultralife</li>
+            </ol>
+          </section>
+        </div>
       </div>
-    </form>
+    </div>
   </body>
 
   <!-- <script>

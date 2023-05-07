@@ -2,6 +2,7 @@ $(document).ready(function () {
   configurarInputsCategoria("categoria");
   configurarInputsCategoria("idade");
   configurarInputsCategoria("porte");
+  configurarTooltip();
 });
 
 /**
@@ -50,4 +51,16 @@ function validarForm() {
   if (categoria && porte && idade) {
     $("#btn-enviar").prop("disabled", false);
   }
+}
+
+/**
+ * Configura o tooltip do Bootstrap.
+ */
+function configurarTooltip() {
+  const tooltipTriggerList = document.querySelectorAll(
+    '[data-bs-toggle="tooltip"]'
+  );
+  const tooltipList = [...tooltipTriggerList].map(
+    (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
+  );
 }

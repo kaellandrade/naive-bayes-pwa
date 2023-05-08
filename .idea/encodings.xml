@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/Dados/USUARIOS_ESPECIE.csv" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/Dados/USUARIOS_IDADE.csv" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/Dados/USUARIOS_PETS_REPRESENTACAO_PERFIS.csv" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/Dados/USUARIOS_PORTE.csv" charset="windows-1252" />
-  </component>
-</project>

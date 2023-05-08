@@ -1,6 +1,8 @@
 async function main() {
   let pyodide = await loadPyodide();
+  await pyodide.loadPackage("pandas")
   return pyodide;
+  
 }
 
 let pyodideSobscribePromisse = main();

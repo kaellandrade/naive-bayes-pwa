@@ -1,6 +1,8 @@
 import pandas as pd
 import chardet
 
+LIMITE_MAX_CLIENTES = 15
+
 def ler_entrada_usuario():
     especie_in = porte_in = idade_in = ""
 
@@ -42,6 +44,14 @@ def ler_entrada_usuario():
 
     return especie_in, porte_in, idade_in
 
+def splitDados(df, row):
+    cliente = df.iloc[row]['CODCLI']
+    especie = df.iloc[row]['ESPECIE']
+    porte = df.iloc[row]['PORTE']
+    idade = df.iloc[row]['IDADE']
+    probabilidade = df.iloc[row]['REPRESENTACAO']
+    probabilidade = float(probabilidade.replace('%', ''))
+    return cliente, especie, porte, idade, probabilidade
 
 def identificar_perfis_iguais(especie_user, porte_user, idade_user):
     # Lê o arquivo CSV para um dataframe
@@ -50,41 +60,36 @@ def identificar_perfis_iguais(especie_user, porte_user, idade_user):
     df = pd.read_csv('./Dados/USUARIOS_PETS_REPRESENTACAO_PERFIS.csv', encoding=encode['encoding'])
     clientes_iguais = []
     for row in range(len(df)):
-        cliente = df.iloc[row]['CODCLI']
-        especie = df.iloc[row]['ESPECIE']
-        porte = df.iloc[row]['PORTE']
-        idade = df.iloc[row]['IDADE']
+        cliente, especie, porte, idade, probabilidade = splitDados(df, row)
         if especie_user == especie and porte_user == porte and idade_user == idade:
-            clientes_iguais.append(cliente)
+            clientes_iguais.append((cliente, probabilidade))
 
     if len(clientes_iguais) == 0:
         for row in range(len(df)):
-            cliente = df.iloc[row]['CODCLI']
-            especie = df.iloc[row]['ESPECIE']
-            porte = df.iloc[row]['PORTE']
-            idade = df.iloc[row]['IDADE']
+            cliente, especie, porte, idade, probabilidade = splitDados(df, row)
             if especie_user in especie and porte_user == porte and idade_user == idade:
-                clientes_iguais.append(cliente)
+                clientes_iguais.append((cliente, probabilidade))
     if len(clientes_iguais) == 0:
         for row in range(len(df)):
-            cliente = df.iloc[row]['CODCLI']
-            especie = df.iloc[row]['ESPECIE']
-            porte = df.iloc[row]['PORTE']
-            idade = df.iloc[row]['IDADE']
+            cliente, especie, porte, idade, probabilidade = splitDados(df, row)
             if especie_user in especie and porte_user in porte and idade_user == idade:
-                clientes_iguais.append(cliente)
+                clientes_iguais.append((cliente, probabilidade))
     if len(clientes_iguais) == 0:
         for row in range(len(df)):
-            cliente = df.iloc[row]['CODCLI']
-            especie = df.iloc[row]['ESPECIE']
-            porte = df.iloc[row]['PORTE']
-            idade = df.iloc[row]['IDADE']
+            cliente, especie, porte, idade, probabilidade = splitDados(df, row)
             if especie_user in especie and porte_user in porte and idade_user in idade:
-                clientes_iguais.append(cliente)
+                clientes_iguais.append((cliente, probabilidade))
 
     return clientes_iguais
 
 
+def ordenarClientesPorProbabilidade(array_clientes):
+    return sorted(array_clientes, key=lambda x: x[1], reverse=True)
+
+
 if __name__ == "__main__":
     especie_user, porte_user, idade_user = ler_entrada_usuario()
-    print(identificar_perfis_iguais(especie_user, porte_user, idade_user))
+    clientes = identificar_perfis_iguais(especie_user, porte_user, idade_user)
+    clientes = ordenarClientesPorProbabilidade(clientes)[:LIMITE_MAX_CLIENTES]
+    print(clientes)
+

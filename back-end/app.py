@@ -34,10 +34,26 @@ class ProxyPetIndica:
     return self.__get_responseDTO(resData, 'Nenhum dado foi encontrado.')
   
 
-  def formating_send_files(self, files: list) -> list:
-    return [{'codigoCli': cod, "nome": nome, "departamento": dep, "percentual": percent} for cod, nome, dep, percent in files]
+  def formating_send_files(self, files: list) -> dict:
+    ALIMENTOS = "ALIMENTOS"
+    HIGIENE_E_BELEZA = "HIGIENE E BELEZA"
+    BAZAR = "BAZAR"
+    filesFinal = {ALIMENTOS: [], HIGIENE_E_BELEZA: [], BAZAR: []}
+
+    for cod, nome, dep, percent in files:
+      dept_temp = dep.upper()
+      dataIndex = self.__fomatIndexData(cod, nome,percent)
+
+      if dept_temp == BAZAR:
+        filesFinal[BAZAR].append(dataIndex)
+      elif dept_temp == ALIMENTOS:
+        filesFinal[ALIMENTOS].append(dataIndex)
+      elif dept_temp == HIGIENE_E_BELEZA:
+        filesFinal[HIGIENE_E_BELEZA].append(dataIndex)
+
+    return filesFinal
   
-  def __get_responseDTO(self, resData: list, msg: str):
+  def __get_responseDTO(self, resData: dict, msg: str):
 
     return {
         'result': {
@@ -45,6 +61,9 @@ class ProxyPetIndica:
           'data': resData
         }
     }
+  
+  def __fomatIndexData(self, cod: int, nome: str, percent: float):
+    return {'codigoCli': cod, "nome": nome, "percentual": percent}
 
   
 
@@ -140,7 +159,6 @@ class CommendProducts:
     return jsonify(proxy.get_response([])), 200
 
 
-print('servido')
 
 if __name__ == '__main__':
 
@@ -150,44 +168,3 @@ if __name__ == '__main__':
 
 
 
-
-"""
-SELECT
-  p.CODCLI,
-  p.PRODUTO,
-  p.DEPARTAMENTO,
-  p.QT_VENDA * 100.0 / s.TOTAL AS PERCENTUAL
-FROM
-  petIndica.allData p
-JOIN
-  (
-    SELECT CODCLI, SUM(QT_VENDA) AS TOTAL
-    FROM petIndica.allData
-    GROUP BY CODCLI
-  ) s
-ON
-  p.CODCLI = s.CODCLI
-WHERE
-  p.CODCLI IN (302501, 30491);
-  
-  
-  
-SELECT
-  CODCLI,
-  PRODUTO,
-  DEPARTAMENTO,
-  SUM(QT_VENDA) AS TOTAL_VENDIDO,
-  COUNT(*) AS NUM_VENDAS,
-  100 * SUM(QT_VENDA) / (SELECT SUM(QT_VENDA) FROM petIndica.allData) AS PERCENT_VENDIDO
-FROM
-  petIndica.allData p
-WHERE
-  CODCLI IN (302501, 30491)
-GROUP BY
-  CODCLI,
-  PRODUTO,
-  DEPARTAMENTO
-ORDER BY
-  CODCLI
-  
-"""

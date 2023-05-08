@@ -5,7 +5,7 @@ const urlsToCache = [
   "styles.css",
   "https://cdn.jsdelivr.net/pyodide/v0.23.1/full/pyodide.js",
   "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css",
-  "USUARIOS_PETS_REPRESENTACAO_PERFIS.csv"
+  "/Dados/USUARIOS_PETS_REPRESENTACAO_PERFIS.csv"
 ];
 
 self.addEventListener("install", (event) => {

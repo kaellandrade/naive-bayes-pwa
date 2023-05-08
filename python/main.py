@@ -3,6 +3,7 @@ import asyncio
 from js import console, fetch, document, window
 import pandas
 from pyodide.ffi import create_proxy # Cria ao proxy 
+from pyodide.http import open_url
 
 LIMITE_MAX_CLIENTES = 15
 
@@ -11,12 +12,10 @@ url = "https://api.agify.io?name=meelad"
 async def getData(*args):
     inpustDados = inputToJSON(['categoria', 'porte', 'idade'])
     console.log(str(inpustDados))
-
     especie_user, porte_user, idade_user = ler_entrada_usuario(inpustDados)
-    clientes = await identificar_perfis_iguais(especie_user, porte_user, idade_user)
+    clientes = identificar_perfis_iguais(especie_user, porte_user, idade_user)
     clientes = ordenarClientesPorProbabilidade(clientes)[:LIMITE_MAX_CLIENTES]
-    console.log(clientes)
-
+    console.log(str(clientes))
 
     # return json
     
@@ -82,15 +81,11 @@ def splitDados(df, row):
     probabilidade = float(probabilidade.replace('%', ''))
     return cliente, especie, porte, idade, probabilidade
 
-async def abrirArquivo():
-    zipResponse = await fetch("http://127.0.0.1:5500/USUARIOS_PETS_REPRESENTACAO_PERFIS.csv");
-    return zipResponse.unpack_archive()
 
-async def identificar_perfis_iguais(especie_user, porte_user, idade_user):
-    # Lê o arquivo CSV para um dataframe
-    console.log('antes do fettch')
-    caminho_arquivo = '../USUARIOS_PETS_REPRESENTACAO_PERFIS.csv'
-    df = pandas.read_csv(caminho_arquivo, encoding='utf-8')
+def identificar_perfis_iguais(especie_user, porte_user, idade_user):
+    # Carrega o arquivo CSV usando o módulo pyodide.file_system
+    file_path = '/Dados/USUARIOS_PETS_REPRESENTACAO_PERFIS.csv'
+    df = pandas.read_csv(open_url(file_path), encoding='utf-8')
     clientes_iguais = []
     for row in range(len(df)):
         cliente, especie, porte, idade, probabilidade = splitDados(df, row)

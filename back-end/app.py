@@ -119,9 +119,13 @@ class DBQuerys:
 
 
 class CommendProducts:
+  
+  @app.route('/',  methods=['GET'])
+  def hello_world():
+	  return 'Hello World!'
 
   @staticmethod
-  @app.route('/', methods=['POST'])
+  @app.route('/alldata', methods=['POST'])
   def get_Products():
     proxy = ProxyPetIndica(request.json)
     profiles = proxy.profiles
@@ -136,14 +140,13 @@ class CommendProducts:
     return jsonify(proxy.get_response([])), 200
 
 
-
+print('servido')
 
 if __name__ == '__main__':
 
   teste = CommendProducts()
   host = '0.0.0.0'
-  port = 5000
-  app.run(port=port)
+  app.run()
 
 
 

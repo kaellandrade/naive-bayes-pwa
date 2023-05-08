@@ -55,9 +55,9 @@ def splitDados(df, row):
 
 def identificar_perfis_iguais(especie_user, porte_user, idade_user):
     # Lê o arquivo CSV para um dataframe
-    with open('./Dados/USUARIOS_PETS_REPRESENTACAO_PERFIS.csv', 'rb') as f:
+    with open('../Dados/USUARIOS_PETS_REPRESENTACAO_PERFIS.csv', 'rb') as f:
         encode = chardet.detect(f.read())
-    df = pd.read_csv('./Dados/USUARIOS_PETS_REPRESENTACAO_PERFIS.csv', encoding=encode['encoding'])
+    df = pd.read_csv('../Dados/USUARIOS_PETS_REPRESENTACAO_PERFIS.csv', encoding=encode['encoding'])
     clientes_iguais = []
     for row in range(len(df)):
         cliente, especie, porte, idade, probabilidade = splitDados(df, row)

@@ -325,7 +325,8 @@ label>input {
   padding: 8px;
 }
 
-.resposta {
+.resposta,
+.pagina-erro {
   display: none;
 }
 
@@ -388,6 +389,15 @@ label>input {
 
 .text-loader {
   font-size: 1.5rem;
+}
+
+.descricao-404 {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.descricao-404>strong {
+  font-weight: bold;
 }
 
 .loader {

@@ -1,22 +1,29 @@
 import json
 import asyncio
-from js import console, fetch, document, window
+from js import console, fetch, document, window, axios
 
 from pyodide.ffi import create_proxy # Cria ao proxy 
 
 
-url = "https://api.agify.io?name=meelad"
+
+
+url = "http://54.167.121.127/alldata"
 
 async def getData(*args):
-    response = await fetch(url, {'method': 'GET'})
-    json = await response.json()
-    console.log('json', json)
-    pre_element = document.createElement("h2")
-    pre_element.id = "idade"
-    pre_element.textContent = str(json.age)
-    elementoAntigo = document.getElementById("idade");
-    elementoAntigo.parentNode.replaceChild(pre_element, elementoAntigo);
-    return json
+    # response = await fetch(url, {'method': 'GET'})
+    # json = await response.json()
+    # console.log('json', json)
+    
+    # return json
+    payload = '{"profiles": [302501]}'
+
+    try:
+        response = await axios.post(url,data=payload)
+        data = response.data
+        console.log('data', data)
+        return data
+    except Exception as e:
+        console.log('Error:', e)
     
 
 async def main():

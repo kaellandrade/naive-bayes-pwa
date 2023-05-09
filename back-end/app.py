@@ -14,7 +14,6 @@ cors = CORS(app, resources={r"/*": {"origins": "*"}})
 class ProxyPetIndica:
 
   def __init__(self,data_clients: dict) -> None:
-    print(data_clients)
     self.data_clients = data_clients
 
   
@@ -161,7 +160,6 @@ class CommendProducts:
   def get_Products():
     proxy = ProxyPetIndica(request.json)
     profiles = proxy.profiles
-    print(profiles)
 
     if len(profiles):
       queryBD = DBQuerys(profiles, 'petIndica.allData')

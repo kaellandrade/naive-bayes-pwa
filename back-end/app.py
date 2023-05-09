@@ -63,6 +63,7 @@ class ProxyPetIndica:
     }
   
   def __fomatIndexData(self, cod: int, nome: str, percent: float):
+    percent = float("{:.4f}".format(percent))
     return {'codigoCli': cod, "nome": nome, "percentual": percent}
 
   
@@ -142,7 +143,7 @@ class CommendProducts:
   @app.route('/',  methods=['GET'])
   def hello_world():
 	  return 'Hello World!'
-
+  
   @staticmethod
   @app.route('/alldata', methods=['POST'])
   def get_Products():

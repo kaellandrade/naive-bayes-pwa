@@ -86,7 +86,7 @@ function irParaTelaSugestoes() {
  * Configura o botão de voltar da tela de indicações.
  */
 function configurarBotalVoltar() {
-  $("#btn-voltar").click(function () {
+  $(".btn-voltar").click(function () {
     irParaHome();
   });
 }

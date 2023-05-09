@@ -70,6 +70,7 @@ function configurarTooltip() {
  * Volta para tela inicial.
  */
 function irParaHome() {
+  $("#fomulario-home").css("filter", "blur(0)");
   $("#respota-div").hide();
   $("#fomulario-home").show();
 }

@@ -289,7 +289,7 @@
         </div>
       </div>
 
-      <!-- Essa DIV será exibida quando a resposta chegar e o form será ocultado -->
+      <!-- Página respota -->
       <div class="resposta" id="respota-div">
         <div class="row-resposta mt-3 row">
           <nav class="navbar barra-navegacao">
@@ -431,6 +431,112 @@
                 >
                   Fechar
                 </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Página 404  -->
+      <div>
+        <div class="pagina-erro" id="pagina-erro-div">
+          <div class="row-resposta mt-3 row">
+            <nav class="navbar barra-navegacao">
+              <div
+                class="btn-voltar-div"
+                data-bs-toggle="tooltip"
+                data-bs-placement="right"
+                data-bs-title="Voltar para tela inicial."
+              >
+                <!-- TODO MUDAR ID desse botão -->
+                <button class="btn btn-voltar" id="btn-voltar-error">
+                  <span class="material-symbols-rounded">arrow_back_ios</span>
+                </button>
+              </div>
+              <div class="logo-nav">
+                <img src="imgs/PetIndica.svg" alt="PetIndica" />
+              </div>
+              <div></div>
+            </nav>
+          </div>
+          <div class="row-resposta mt-3 row">
+            <div class="row-categoria mt-3 row text-center">
+              <div class="col-12">
+                <div class="logo">
+                  <img src="./imgs/404.svg" alt="logo" />
+                </div>
+              </div>
+            </div>
+            <section class="section-descricao">
+              <p class="descricao-404">
+                Ops! Parece que você está <strong>off-line</strong>. Enquanto
+                isso veja algumas dicas que preparamos para você.
+              </p>
+            </section>
+          </div>
+          <div class="row-resposta mt-3 row">
+            <section class="section-departamento">
+              <ol>
+                <li>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Necessitatibus;
+                </li>
+                <li>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Necessitatibus;
+                </li>
+                <li>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Necessitatibus;
+                </li>
+              </ol>
+            </section>
+          </div>
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="exampleModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">
+                    Sobre nosso sistema de recomendações
+                  </h1>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  Bem-vindo ao PetIndica! O nosso sistema utiliza
+                  <strong>inteligência artificial</strong> com dados reais de
+                  pessoas anonimizadas, baseando em suas compras para te sugerir
+                  os melhores produtos para o seu pet. Em nosso projeto,
+                  utilizamos a técnica Naive Bayes para procurar os perfis de
+                  compra e os produtos relacionados, como também utilizamos da
+                  paradigma da <strong>filtragem colaborativa</strong> que
+                  utiliza de vários pontos de vista para filtrar informações
+                  importantes.
+                  <p>
+                    Fique à vontade para explorar os perfis de compras e ver a
+                    sugestão que o PetIndica irá fazer para você.
+                  </p>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary btn-indicar"
+                    data-bs-dismiss="modal"
+                  >
+                    Fechar
+                  </button>
+                </div>
               </div>
             </div>
           </div>

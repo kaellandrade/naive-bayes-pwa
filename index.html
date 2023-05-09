@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="/imgs/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PetIndica - Sistema de Indicação</title>
+    <title>PetIndica - Sistema de Indicação para seu Pet</title>
     <script src="https://cdn.jsdelivr.net/pyodide/v0.23.1/full/pyodide.js"></script>
 
     <link
@@ -267,11 +267,7 @@
         <div class="mt-5 row mb-3">
           <div class="col-12 col-md-6 col-lg-4 mx-auto">
             <div class="d-grid gap-2">
-              <button
-                class="btn btn-lg btn-indicar"
-                disabled="true"
-                id="btn-enviar"
-              >
+              <button class="btn btn-indicar" disabled="true" id="btn-enviar">
                 <div>
                   <h3 class="btn-label">Solicitar Indicação</h3>
                   <span class="material-symbols-rounded"> pets </span>
@@ -402,14 +398,27 @@
                   aria-label="Close"
                 ></button>
               </div>
-              <div class="modal-body">...</div>
+              <div class="modal-body">
+                Bem-vindo ao PetIndica! O nosso sistema utiliza
+                <strong>inteligência artificial</strong> com dados reais de
+                pessoas anonimizadas, baseando em suas compras para te sugerir
+                os melhores produtos para o seu pet. Em nosso projeto,
+                utilizamos a técnica Naive Bayes para procurar os perfis de
+                compra e os produtos relacionados, como também utilizamos da
+                paradigma da <strong>filtragem colaborativa</strong> que utiliza
+                de vários pontos de vista para filtrar informações importantes.
+                <p>
+                  Fique à vontade para explorar os perfis de compras e ver a
+                  sugestão que o PetIndica irá fazer para você.
+                </p>
+              </div>
               <div class="modal-footer">
                 <button
                   type="button"
-                  class="btn btn-secondary"
+                  class="btn btn-secondary btn-indicar"
                   data-bs-dismiss="modal"
                 >
-                  Close
+                  Fechar
                 </button>
               </div>
             </div>

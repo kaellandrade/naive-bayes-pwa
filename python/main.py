@@ -6,7 +6,6 @@ from pyodide.ffi import create_proxy # Cria ao proxy
 from pyodide.http import open_url
 import ssl
 
-ssl._create_default_https_context = ssl._create_unverified_context
 LIMITE_MAX_CLIENTES = 30
 
 url = "http://3.90.206.146/alldata"

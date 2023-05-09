@@ -7,7 +7,9 @@ from pyodide.http import open_url
 
 LIMITE_MAX_CLIENTES = 15
 
-url = "https://api.agify.io?name=meelad"
+# url = "https://api.agify.io?name=meelad"
+
+url = "http://192.168.0.34:8000"
 
 async def getData(*args):
     inpustDados = inputToJSON(['categoria', 'porte', 'idade'])

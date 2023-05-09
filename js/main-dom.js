@@ -72,6 +72,7 @@ function configurarTooltip() {
 function irParaHome() {
   $("#fomulario-home").css("filter", "blur(0)");
   $("#respota-div").hide();
+  $("#pagina-erro-div").hide();
   $("#fomulario-home").show();
 }
 

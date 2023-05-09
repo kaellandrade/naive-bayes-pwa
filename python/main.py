@@ -14,6 +14,7 @@ DATA_FRAME = read_csv(open_url(FILE_PATH), encoding='utf-8')
 ELEMENTO_LOADER = document.getElementById('loader')
 PAGINA_HOME = document.getElementById("fomulario-home")
 PAGINA_RESPOSTA = document.getElementById("respota-div")
+PAGINA_ERRO = document.getElementById("pagina-erro-div")
 
 OL_ALIMENTOS = document.getElementById('ol-alimentos')
 OL_BAZAR = document.getElementById("ol-bazar")
@@ -35,6 +36,7 @@ async def solicitarIndicacao(payload):
             data = response.data
             return data
         except Exception as e:
+            navegarParaErro()
             console.log('Error:', e)
 
 def getProdutos(proxy, categoria):
@@ -49,6 +51,11 @@ def listToLiStringHTML(list):
     for item in list:
         html += '<li>' + item + '</li>'
     return html
+
+def navegarParaErro():
+    ELEMENTO_LOADER.style.display = "none"
+    PAGINA_HOME.style.display = "none"
+    PAGINA_ERRO.style.display = "block"
 
 def navegarParaResposta():
     PAGINA_HOME.style.display = "none"

@@ -114,7 +114,7 @@ class DBQuerys:
           CODCLI,
           PRODUTO,
           DEPARTAMENTO,
-          100 * SUM(QT_VENDA) / (SELECT SUM(QT_VENDA) FROM petIndica.allData) AS PERCENT_VENDIDO
+          100 * CAST(SUM(QT_VENDA) AS FLOAT) / (SELECT SUM(QT_VENDA) FROM petIndica.allData WHERE CODCLI = p.CODCLI) AS PERCENT_VENDIDO
         FROM
           {} p
         WHERE

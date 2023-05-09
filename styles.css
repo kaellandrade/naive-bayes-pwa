@@ -277,10 +277,6 @@ label>input {
   color: #F16767;
 }
 
-.formulario-principal-home {
-  display: none;
-}
-
 
 .btn-voltar {
   display: flex;
@@ -327,6 +323,10 @@ label>input {
 
 .section-departamento ol li {
   padding: 8px;
+}
+
+.resposta {
+  display: none;
 }
 
 .departamento-card-alimentos {

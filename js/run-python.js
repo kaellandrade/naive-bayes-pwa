@@ -12,7 +12,7 @@ async function evaluatePython() {
 
   loader.style.display = "block";
   formHome.style.filter = "blur(.2rem)";
-  console.log(loader);
+
   let pyodide = await pyodideSobscribePromisse;
   try {
     let python_code = await (await fetch("/python/main.py")).text();

@@ -1,6 +1,7 @@
 async function main() {
   let pyodide = await loadPyodide();
   await pyodide.loadPackage("pandas");
+  await pyodide.loadPackage("ssl");
   return pyodide;
 }
 

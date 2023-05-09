@@ -386,6 +386,22 @@ label>input {
   font-weight: bold !important;
 }
 
+.text-loader {
+  font-size: 1.5rem;
+}
+
+.loader {
+  color: #ffffff;
+  padding: 1rem;
+  z-index: 1;
+  background-color: #A459D1;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 12px;
+}
+
 @keyframes fade-btn {
   0% {
     background-color: #A459D1;

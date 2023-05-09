@@ -108,7 +108,7 @@ class DBQuerys:
   def queryColaborativeFiltering(self):
     """
 
-    ESSA EH A CONSULTA ORIGINAL ACHO QUE TA FUNCIONANDO CORRETAMENTE
+    Consulta principal.
     """
     return '''
         SELECT

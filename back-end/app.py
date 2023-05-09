@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request
 
 from main import DataBaseCore
 
+import json
 
 
 from flask_cors import CORS
@@ -13,6 +14,7 @@ cors = CORS(app, resources={r"/*": {"origins": "*"}})
 class ProxyPetIndica:
 
   def __init__(self,data_clients: dict) -> None:
+    print(data_clients)
     self.data_clients = data_clients
 
   
@@ -20,10 +22,20 @@ class ProxyPetIndica:
   def profiles(self) -> list:
 
     data = self.data_clients
-    key = 'profiles'
+    key_p = 'profiles'
+    key_d = 'data'
+    
+    if data.get(key_d):
+      data_dict = data[key_d]
+      
+      try:
+        profiles = eval(str(data_dict))
+      except:
+        profiles = eval('{}')
 
-    if data.get(key):
-      return self.data_clients[key]
+      if profiles.get(key_p):
+        return profiles[key_p]
+    
     return []
   
 
@@ -149,6 +161,7 @@ class CommendProducts:
   def get_Products():
     proxy = ProxyPetIndica(request.json)
     profiles = proxy.profiles
+    print(profiles)
 
     if len(profiles):
       queryBD = DBQuerys(profiles, 'petIndica.allData')

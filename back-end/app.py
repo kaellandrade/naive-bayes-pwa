@@ -114,7 +114,7 @@ class DBQuerys:
           CODCLI,
           PRODUTO,
           DEPARTAMENTO,
-          100 * CAST(SUM(QT_VENDA) AS FLOAT) / (SELECT SUM(QT_VENDA) FROM petIndica.allData WHERE CODCLI = p.CODCLI) AS PERCENT_VENDIDO
+          100 * CAST(SUM(QT_VENDA) AS FLOAT) / (SELECT SUM(QT_VENDA) FROM {} WHERE CODCLI = p.CODCLI) AS PERCENT_VENDIDO
         FROM
           {} p
         WHERE
@@ -125,7 +125,7 @@ class DBQuerys:
           DEPARTAMENTO
         ORDER BY
           CODCLI
-    '''.format(self.name_table, self.codes_profiles)
+    '''.format(self.name_table, self.name_table, self.codes_profiles)
   
   @property
   def codes_profiles(self):

@@ -1,13 +1,13 @@
 import json
 import asyncio
-from js import console, fetch, document, window
 import pandas
+from js import console, fetch, document, window, axios
 from pyodide.ffi import create_proxy # Cria ao proxy 
 from pyodide.http import open_url
 
 LIMITE_MAX_CLIENTES = 15
 
-url = "https://api.agify.io?name=meelad"
+url = "http://54.167.121.127/alldata"
 
 async def getData(*args):
     inpustDados = inputToJSON(['categoria', 'porte', 'idade'])
@@ -17,7 +17,16 @@ async def getData(*args):
     clientes = ordenarClientesPorProbabilidade(clientes)[:LIMITE_MAX_CLIENTES]
     console.log(str(clientes))
 
-    # return json
+
+    payload = '{"profiles": [302501]}'
+
+    try:
+        response = await axios.post(url,data=payload)
+        data = response.data
+        console.log('data', data)
+        return data
+    except Exception as e:
+        console.log('Error:', e)
     
 
 async def main():
@@ -28,7 +37,7 @@ loop = asyncio.get_event_loop()
 # loop.run_until_complete(main())
 
 
-#  =================================================
+
 
 def f(*args):
     inputValues = document.getElementById('input-id').value

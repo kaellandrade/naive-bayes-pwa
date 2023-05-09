@@ -372,6 +372,20 @@ label>input {
   font-size: 1.2rem;
 }
 
+
+.modal-header {
+  background-color: #a559d171;
+}
+
+.modal-body {
+  font-size: 1.2rem;
+  background-color: #F5EAEA;
+}
+
+.modal-body>strong {
+  font-weight: bold !important;
+}
+
 @keyframes fade-btn {
   0% {
     background-color: #A459D1;

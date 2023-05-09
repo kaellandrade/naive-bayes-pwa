@@ -1,13 +1,15 @@
 import json
 import asyncio
-import pandas
+from pandas import read_csv
 from js import console, fetch, document, window, axios
 from pyodide.ffi import create_proxy # Cria ao proxy 
 from pyodide.http import open_url
 
-LIMITE_MAX_CLIENTES = 15
+LIMITE_MAX_CLIENTES = 30
 
 url = "http://54.158.47.242/alldata"
+FILE_PATH = '/Dados/USUARIOS_PETS_REPRESENTACAO_PERFIS.csv'
+DATA_FRAME = read_csv(open_url(FILE_PATH), encoding='utf-8')
 
 async def getData(*args):
     inpustDados = inputToJSON(['categoria', 'porte', 'idade'])
@@ -15,16 +17,8 @@ async def getData(*args):
     especie_user, porte_user, idade_user = ler_entrada_usuario(inpustDados)
     clientes = identificar_perfis_iguais(especie_user, porte_user, idade_user)
     clientes = ordenarClientesPorProbabilidade(clientes)[:LIMITE_MAX_CLIENTES]
-    codClientes = map(lambda x: x[0], clientes)
-    # console.log(str(list(codClientes)))
-
-    dictClientes = {"profiles": codClientes}
-
-    payload = '' + str(dictClientes) + ''
-
-
-    # payload = '{"profiles": [302501]}'
-
+    codClientes = ",".join(str(x) for x in list(map(lambda x: x[0], clientes))) 
+    payload = '{"profiles": [' + codClientes + ']}'
     try:
         response = await axios.post(url,data=payload)
         data = response.data
@@ -98,8 +92,7 @@ def splitDados(df, row):
 
 def identificar_perfis_iguais(especie_user, porte_user, idade_user):
     # Carrega o arquivo CSV usando o módulo pyodide.file_system
-    file_path = '/Dados/USUARIOS_PETS_REPRESENTACAO_PERFIS.csv'
-    df = pandas.read_csv(open_url(file_path), encoding='utf-8')
+    df = DATA_FRAME
     clientes_iguais = []
     for row in range(len(df)):
         cliente, especie, porte, idade, probabilidade = splitDados(df, row)

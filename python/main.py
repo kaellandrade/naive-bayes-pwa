@@ -4,7 +4,6 @@ from pandas import read_csv
 from js import console, fetch, document, window, axios
 from pyodide.ffi import create_proxy # Cria ao proxy 
 from pyodide.http import open_url
-import ssl
 
 LIMITE_MAX_CLIENTES = 30
 

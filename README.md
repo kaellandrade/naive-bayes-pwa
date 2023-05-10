@@ -36,7 +36,7 @@ Telas criadas no figma para elaboração do projeto.
 ## :computer: Arquitetura do projeto
 
 <div align="center">
-    <img src="./imgs/readme/arquitetura.jpg" title="Arquitetura do projeto" width="70%"/>
+    <img src="./imgs/readme/arquitetura.jpg" title="Arquitetura do projeto" width="100%"/>
 </div>
 
 ## 🤝 Colaboradores
@@ -47,7 +47,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
   <tr>
     <td align="center">
       <a href="https://github.com/kaellandrade">
-        <img src="./imgs/readme/Micael.jpg" width="100px;" alt="Foto do Iuri Silva no GitHub"/><br>
+        <img src="./imgs/readme/Micael.jpg" width="100px;" alt="Foto de Micael"/><br>
         <sub>
           <b>Micael Andrade</b>
         </sub>
@@ -55,7 +55,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
     <td align="center">
       <a href="https://github.com/biel0209">
-        <img src="./imgs/readme/Marcus.jpg" width="100px;" alt="Foto do Mark Zuckerberg"/><br>
+        <img src="./imgs/readme/Marcus.jpg" width="100px;" alt="Foto de Marcus"/><br>
         <sub>
           <b>Marcus</b>
         </sub>
@@ -63,7 +63,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
     <td align="center">
       <a href="https://github.com/gibajunior18">
-        <img src="./imgs/readme/Gilberto.jpg" width="100px;" alt="Foto do Steve Jobs"/><br>
+        <img src="./imgs/readme/Gilberto.jpg" width="100px;" alt="Foto de Gilberto"/><br>
         <sub>
           <b>Gilberto</b>
         </sub>
@@ -71,7 +71,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
     <td align="center">
       <a href="https://github.com/gabrielbtera">
-        <img src="./imgs/readme/Gabriel.jpg" width="100px;" alt="Foto do Steve Jobs"/><br>
+        <img src="./imgs/readme/Gabriel.jpeg" width="100px;" alt="Foto do Gabriel"/><br>
         <sub>
           <b>Gabriel</b>
         </sub>
@@ -79,7 +79,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
     <td align="center">
       <a href="https://github.com/hendrikdcomp/">
-        <img src="./imgs/readme/Hendrik.jpeg" width="100px;" alt="Foto do Steve Jobs"/><br>
+        <img src="./imgs/readme/Hendrik.jpeg" width="100px;" alt="Foto de Hendrik"/><br>
         <sub>
           <b>Hendrik</b>
         </sub>

@@ -12,7 +12,7 @@ Projeto Final para disciplina de IA - UFS
 ![Bitbucket open issues](https://img.shields.io/bitbucket/issues/kaellandrade/naive-bayes-pwa?style=for-the-badge)
 ![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/kaellandrade/naive-bayes-pwa?style=for-the-badge)
 
-> O PetIndica é um programa de computador via web que serve para recomendar produtos da área pet para possíveis clientes que ainda não sabem o que comprar ou que preferem ter um conselho mais refinado sobre indicações de produtos. Acessar o projeto no Nenetlifyt <a href="https://petindica.netlify.app/">PetIndica</a>
+> O PetIndica é um programa de computador via web que serve para recomendar produtos da área pet para possíveis clientes que ainda não sabem o que comprar ou que preferem ter um conselho mais refinado sobre indicações de produtos. Acessar o projeto no Nenetlifyt <a href="https://petindica.netlify.app/" target="_blank">PetIndica</a>
 
 - [Prototipo no figma](https://www.figma.com/file/XypjyQvUThlPKbfAhi9Ulw/PetIndica?type=design&node-id=0%3A1&t=nPKN4ucsf6fl2eIe-1)
 
@@ -20,13 +20,7 @@ Projeto Final para disciplina de IA - UFS
 
 Video do youtube aqui...
 
-### Ajustes e melhorias (Trabalhos futuros)
-
-Descrição aqui...
-
 ## :camera: UX Telas
-
-### Site Map (fluxo das telas)
 
 Telas criadas no figma para elaboração do projeto.
 
@@ -108,6 +102,10 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
 <code><img height="30" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/visual-studio-code/visual-studio-code.png" title="VsCode"></code>
 <code><img height="30" src="https://th.bing.com/th/id/R.157f907ab99edc35681260a54b809212?rik=vraQQ%2fYB2OVNaA&pid=ImgRaw&r=0" title="Jetbrains"></code>
 <code><img height="30" src="https://upload.wikimedia.org/wikipedia/commons/9/97/Netlify_logo_%282%29.svg" title="Netlify"></code>
+
+## Ajustes e melhorias (Trabalhos futuros)
+
+Descrição aqui...
 
 ## :closed_book: Referências
 

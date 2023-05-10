@@ -1,4 +1,4 @@
-# PetIndica
+# [PetIndica](https://petindica.netlify.app/)
 
 Projeto Final para disciplina de IA - UFS
 
@@ -12,9 +12,9 @@ Projeto Final para disciplina de IA - UFS
 ![Bitbucket open issues](https://img.shields.io/bitbucket/issues/kaellandrade/naive-bayes-pwa?style=for-the-badge)
 ![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/kaellandrade/naive-bayes-pwa?style=for-the-badge)
 
-> O PetIndica é um programa de computador via web que serve para recomendar produtos da área pet para possíveis clientes que ainda não sabem o que comprar ou que preferem ter um conselho mais refinado sobre indicações de produtos. Acessar o projeto <a href="https://petindica.netlify.app/">PetIndica</a>
+> O PetIndica é um programa de computador via web que serve para recomendar produtos da área pet para possíveis clientes que ainda não sabem o que comprar ou que preferem ter um conselho mais refinado sobre indicações de produtos. Acessar o projeto no Nenetlifyt <a href="https://petindica.netlify.app/">PetIndica</a>
 
-- Link telas
+- [Prototipo no figma](https://www.figma.com/file/XypjyQvUThlPKbfAhi9Ulw/PetIndica?type=design&node-id=0%3A1&t=nPKN4ucsf6fl2eIe-1)
 
 ## :movie_camera: Vídeo Demonstração
 
@@ -108,5 +108,16 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
 <code><img height="30" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/visual-studio-code/visual-studio-code.png" title="VsCode"></code>
 <code><img height="30" src="https://th.bing.com/th/id/R.157f907ab99edc35681260a54b809212?rik=vraQQ%2fYB2OVNaA&pid=ImgRaw&r=0" title="Jetbrains"></code>
 <code><img height="30" src="https://upload.wikimedia.org/wikipedia/commons/9/97/Netlify_logo_%282%29.svg" title="Netlify"></code>
+
+## :closed_book: Referências
+
+### Artigos
+
+> P. Valdiviezo-Diaz, F. Ortega, E. Cobos and R. Lara-Cabrera, "A Collaborative Filtering Approach Based on Naïve Bayes Classifier," in IEEE Access, vol. 7, pp. 108581-108592, 2019, doi: 10.1109/ACCESS.2019.2933048. - Filtragem colaboratica
+
+### UX inspirações
+
+- [Undraw](https://undraw.co/)
+- [Dribbble](https://dribbble.com/)
 
 [⬆ Voltar ao topo](#PetIndica)<br>

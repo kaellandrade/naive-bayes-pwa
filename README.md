@@ -26,7 +26,16 @@ Descrição aqui...
 
 ## :camera: UX Telas
 
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FXypjyQvUThlPKbfAhi9Ulw%2FPetIndica%3Ftype%3Ddesign%26node-id%3D0%253A1%26t%3DnPKN4ucsf6fl2eIe-1" allowfullscreen></iframe>
+### Site Map (fluxo das telas)
+
+<div align="center">
+    <img src="./imgs/readme/site-map.png" title="Site map"/>
+  <div style="display: flex; align-items: flex-start;">
+    <img src="./imgs/readme/home.png" title="Tela inicial"/>
+    <img src="./imgs/readme/end.png" title="Tela de recomendação"/>
+    <img src="./imgs/readme/off-line.png" title="Tela off-line"/>
+  </div>
+</div>
 
 Telas criadas no figma para elaboração do projeto.
 
@@ -87,7 +96,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
 <code><img height="30" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/html/html.png" title="HTML"></code>
 <code><img height="30" src="https://th.bing.com/th/id/R.6b2018f5c6532f6c29806ef06ffb158d?rik=iz3jaCtzRF18EQ&pid=ImgRaw&r=0" title="CSS"></code>
 <code><img height="30" src="https://www.postgresql.org/media/img/about/press/elephant.png" title="postgreSQL"></code>
-<code><img height="30" src="https://www.awsacademy.com/vforcesite/resource/1576451101000/logo" title="AWS Academy"></code>
+<code><img height="30" src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" title="AWS Academy"></code>
 <code><img height="30" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/git/git.png" title="Git"></code>
 <code><img height="30" src="https://pyodide.org/en/stable/_static/pyodide-logo.png" title="Pyodide"></code>
 <code><img height="30" src="https://www.python.org/static/img/python-logo.png" title="Python"></code>

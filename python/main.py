@@ -9,7 +9,7 @@ from pyodide.http import open_url
 LIMITE_MAX_CLIENTES = 30
 LIMITE_MAX_PRODUTOS_POR_CATEGORIA = 10
 
-url = "http://54.197.48.102/alldata"
+url = "http://34.229.74.90/alldata"
 FILE_PATH = '/Dados/USUARIOS_PETS_REPRESENTACAO_PERFIS.csv'
 DATA_FRAME = read_csv(open_url(FILE_PATH), encoding='utf-8')
 
@@ -38,7 +38,6 @@ def getPalavrasResevadas(categoria):
     for k,v in PALAVRAS_RESERVADAS.items():
         if(k != categoria):
             palavras += v
-    console.log(str(palavras))
     return palavras
 
 
@@ -74,7 +73,6 @@ def getProdutos(proxy, categoria, palavrasReservas = []):
     for item in dictCategorias[categoria]:
         presente = False
         nomeProduto = item['nome']
-        console.log(nomeProduto)
         for palavra in palavrasReservas:
             if palavra in nomeProduto:
                 presente = True

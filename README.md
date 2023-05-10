@@ -23,7 +23,7 @@ Projeto Final para disciplina de IA - UFS
 
 ## :movie_camera: Vídeo Demonstração
 
-[![Alt text for your video](https://th.bing.com/th/id/OIP.Up9fUvpIxq_5YNT2hWF7kQHaEo?pid=ImgDet&rs=1)](https://www.youtube.com/watch?v=nQVRG2lsp6w)
+[![Alt text for your video](./imgs/image-youtube.png)](https://www.youtube.com/watch?v=nQVRG2lsp6w)
 
 ## :camera: UX Telas
 
@@ -34,7 +34,7 @@ Telas criadas no figma para elaboração do projeto.
   <div style="display: flex; align-items: flex-start; justify-content:center;">
     <img src="./imgs/readme/home.png" title="Tela inicial" width="20%"/>
     <img src="./imgs/readme/end.png" title="Tela de recomendação"width="20%"/>
-    <img src="./imgs/readme/off-line.png" title="Tela off-line" width="20%"/>
+    <img src="/imgs/readme/off-line.png" title="Tela off-line" width="20%"/>
   </div>
 </div>
 

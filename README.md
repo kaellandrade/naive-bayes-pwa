@@ -18,7 +18,8 @@ Projeto Final para disciplina de IA - UFS
 
 ## Acessar o projeto no Netlify
 <a href="https://petindica.netlify.app/" target="_blank">PetIndica</a>
-*Observação: a aplicação do netlify não consegue fazer requisições ao banco de dados porque não possui um certificado SSL, por isso no vídeo abaixo mostramos a aplicação rodando local.
+
+- Observação: a aplicação do netlify não consegue fazer requisições ao banco de dados porque não possui um certificado SSL, por isso no vídeo abaixo mostramos a aplicação rodando local.
 
 ## :movie_camera: Vídeo Demonstração
 

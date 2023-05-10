@@ -18,7 +18,7 @@ Projeto Final para disciplina de IA - UFS
 
 ## :movie_camera: Vídeo Demonstração
 
-Video do youtube aqui...
+[![Alt text for your video](https://th.bing.com/th/id/OIP.Up9fUvpIxq_5YNT2hWF7kQHaEo?pid=ImgDet&rs=1)](https://www.youtube.com/watch?v=6DeDzsCGbsQ)
 
 ## :camera: UX Telas
 

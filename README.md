@@ -31,9 +31,9 @@ Descrição aqui...
 <div align="center">
     <img src="./imgs/readme/site-map.png" title="Site map"/>
   <div style="display: flex; align-items: flex-start;">
-    <img src="./imgs/readme/home.png" title="Tela inicial"/>
-    <img src="./imgs/readme/end.png" title="Tela de recomendação"/>
-    <img src="./imgs/readme/off-line.png" title="Tela off-line"/>
+    <img src="./imgs/readme/home.png" title="Tela inicial" width="40%"/>
+    <img src="./imgs/readme/end.png" title="Tela de recomendação"width="40%"/>
+    <img src="./imgs/readme/off-line.png" title="Tela off-line" width="40%"/>
   </div>
 </div>
 

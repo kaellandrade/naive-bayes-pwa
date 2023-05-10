@@ -16,8 +16,9 @@ Projeto Final para disciplina de IA - UFS
 
 - [Prototipo no figma](https://www.figma.com/file/XypjyQvUThlPKbfAhi9Ulw/PetIndica?type=design&node-id=0%3A1&t=nPKN4ucsf6fl2eIe-1)
 
-## Acessar o projeto no Nenetlifyt
+## Acessar o projeto no Netlify
 <a href="https://petindica.netlify.app/" target="_blank">PetIndica</a>
+*Observação: a aplicação do netlify não consegue fazer requisições ao banco de dados porque não possui um certificado SSL, por isso no vídeo abaixo mostramos a aplicação rodando local.
 
 ## :movie_camera: Vídeo Demonstração
 
@@ -108,7 +109,9 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
 
 ## Ajustes e melhorias (Trabalhos futuros)
 
-Descrição aqui...
+- No output, mostrar também imagens ilustrativas de cada produto.
+- Adquirir um certificado SSL para deixar que a aplicação no netlify consiga fazer requisições ao banco de dados.
+
 
 ## :closed_book: Referências
 

@@ -28,18 +28,22 @@ Descrição aqui...
 
 ### Site Map (fluxo das telas)
 
+Telas criadas no figma para elaboração do projeto.
+
 <div align="center">
-  <div style="display: flex; align-items: flex-start;">
     <img src="./imgs/readme/site-map.png" title="Site map" width="70%"/>
+  <div style="display: flex; align-items: flex-start; justify-content:center;">
     <img src="./imgs/readme/home.png" title="Tela inicial" width="20%"/>
     <img src="./imgs/readme/end.png" title="Tela de recomendação"width="20%"/>
     <img src="./imgs/readme/off-line.png" title="Tela off-line" width="20%"/>
   </div>
 </div>
 
-Telas criadas no figma para elaboração do projeto.
-
 ## :computer: Arquitetura do projeto
+
+<div align="center">
+    <img src="./imgs/readme/arquitetura.jpg" title="Arquitetura do projeto" width="70%"/>
+</div>
 
 ## 🤝 Colaboradores
 

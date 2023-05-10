@@ -30,7 +30,7 @@ Descrição aqui...
 
 <div align="center">
   <div style="display: flex; align-items: flex-start;">
-    <img src="./imgs/readme/site-map.png" title="Site map" width="60%"/>
+    <img src="./imgs/readme/site-map.png" title="Site map" width="70%"/>
     <img src="./imgs/readme/home.png" title="Tela inicial" width="20%"/>
     <img src="./imgs/readme/end.png" title="Tela de recomendação"width="20%"/>
     <img src="./imgs/readme/off-line.png" title="Tela off-line" width="20%"/>

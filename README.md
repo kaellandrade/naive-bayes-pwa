@@ -14,6 +14,8 @@ Projeto Final para disciplina de IA - UFS
 
 > O PetIndica é um programa de computador via web que serve para recomendar produtos da área pet para possíveis clientes que ainda não sabem o que comprar ou que preferem ter um conselho mais refinado sobre indicações de produtos. Acessar o projeto <a href="https://petindica.netlify.app/">PetIndica</a>
 
+- Link telas
+
 ## :movie_camera: Vídeo Demonstração
 
 Video do youtube aqui...
@@ -25,6 +27,7 @@ Descrição aqui...
 ## :camera: UX Telas
 
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FXypjyQvUThlPKbfAhi9Ulw%2FPetIndica%3Ftype%3Ddesign%26node-id%3D0%253A1%26t%3DnPKN4ucsf6fl2eIe-1" allowfullscreen></iframe>
+
 Telas criadas no figma para elaboração do projeto.
 
 ## :computer: Arquitetura do projeto

@@ -1,13 +1,15 @@
 import json
 import asyncio
+import random
 from pandas import read_csv
 from js import console, fetch, document, window, axios
 from pyodide.ffi import create_proxy # Cria ao proxy 
 from pyodide.http import open_url
 
 LIMITE_MAX_CLIENTES = 30
+LIMITE_MAX_PRODUTOS_POR_CATEGORIA = 10
 
-url = "http://3.90.206.146/alldata"
+url = "http://34.229.74.90/alldata"
 FILE_PATH = '/Dados/USUARIOS_PETS_REPRESENTACAO_PERFIS.csv'
 DATA_FRAME = read_csv(open_url(FILE_PATH), encoding='utf-8')
 
@@ -20,6 +22,23 @@ OL_ALIMENTOS = document.getElementById('ol-alimentos')
 OL_BAZAR = document.getElementById("ol-bazar")
 OL_HIGIENE = document.getElementById("ol-higiene-beleza")
 
+P_ENTRADA_USER = document.getElementById("text-entrada-usuario")
+
+PALAVRAS_RESERVADAS = {
+    'CÃES': ['CÃES', 'OSSO', 'DOG', 'PEDIGREE', 'PUPPY', 'BULLDOG', 'CÃO', 'CAO', 'DOGUINHO'], 
+    'GATOS': ['CAT', 'GATO', 'CATS', 'GATOS', 'WHISKAS'],
+    'PÁSSAROS': ['PÁSSARO', 'PAPAGAIO' 'CALOPSITA', 'AVE', 'PERIQUITO', 'CURIO', 'PASSARO', 'SABIA', 'BEIJA FLOR', 'ALPISTE'],
+    'RÉPTEIS': ['RÉPTEIS', 'RÉPTIL', 'JABUTI', 'TARTARUGA', 'TURTLE'],
+    'PEIXES': ['PEIXE' 'AQUÁRIO', 'AQUA', 'FISH'],
+    'ROEDORES':  ['ROEDOR', 'HAMSTER', 'COELHO', 'SERRAGEM', 'PORQUINHO']
+}
+
+def getPalavrasResevadas(categoria):
+    palavras = []
+    for k,v in PALAVRAS_RESERVADAS.items():
+        if(k != categoria):
+            palavras += v
+    return palavras
 
 
 def iniciarLoader():
@@ -39,12 +58,35 @@ async def solicitarIndicacao(payload):
             navegarParaErro()
             console.log('Error:', e)
 
-def getProdutos(proxy, categoria):
+def randomizarProdutos(produtos):
+    produtosRandomizados = []
+    for i in range(LIMITE_MAX_PRODUTOS_POR_CATEGORIA):
+        if(len(produtos) > 0):
+            index = random.randint(0, len(PALAVRAS_RESERVADAS)-1)
+            produtosRandomizados.append(produtos[index])
+            produtos.pop(index)
+    return produtosRandomizados
+
+def getProdutos(proxy, categoria, palavrasReservas = []):
     produtos = []
     dictCategorias = dict(proxy.to_py())
     for item in dictCategorias[categoria]:
-        produtos.append(item['nome'])
+        presente = False
+        nomeProduto = item['nome']
+        for palavra in palavrasReservas:
+            if palavra in nomeProduto:
+                presente = True
+                break
+        if not presente:
+            produtos.append(nomeProduto.capitalize())
+
+    produtos = list(set(produtos))    # Remove duplicatas   
+
+    if(len(produtos) > LIMITE_MAX_PRODUTOS_POR_CATEGORIA):  #
+        produtos = randomizarProdutos(produtos)  
+
     return produtos
+      
 
 def listToLiStringHTML(list):
     html = ''
@@ -61,14 +103,20 @@ def navegarParaResposta():
     PAGINA_HOME.style.display = "none"
     PAGINA_RESPOSTA.style.display = "block"
 
-def montarResposta(data):
+def montarResposta(data, listaPalavrasReservas, user_categoria, user_porte, user_idade):
     dados_retornados = data.result.data
-    alimentos = listToLiStringHTML(getProdutos(dados_retornados, 'ALIMENTOS'))
-    bazar = listToLiStringHTML(getProdutos(dados_retornados, 'BAZAR'))
-    higiene = listToLiStringHTML(getProdutos(dados_retornados, 'HIGIENE E BELEZA'))
+    alimentos = listToLiStringHTML(getProdutos(dados_retornados, 'ALIMENTOS', listaPalavrasReservas))
+    bazar = listToLiStringHTML(getProdutos(dados_retornados, 'BAZAR', listaPalavrasReservas))
+    higiene = listToLiStringHTML(getProdutos(dados_retornados, 'HIGIENE E BELEZA', listaPalavrasReservas))
+
     OL_ALIMENTOS.innerHTML = alimentos
     OL_BAZAR.innerHTML = bazar
     OL_HIGIENE.innerHTML = higiene
+
+    text = 'A seguir, algumas sugestões exclusivas para seu pet que possui as seguintes características: '
+    html_input_user = f'<p>{text} {user_categoria.capitalize()} - {user_porte.capitalize()} - {user_idade.capitalize()}.</p>'
+    P_ENTRADA_USER.innerHTML = html_input_user
+
     navegarParaResposta()
 
 
@@ -76,14 +124,17 @@ def montarResposta(data):
 async def getData(*args):
     iniciarLoader()
     inpustDados = inputToJSON(['categoria', 'porte', 'idade'])
-    console.log(str(inpustDados))
+    categoriaSelecionada = inpustDados['categoria']
+    listaPalavrasReservas = getPalavrasResevadas(categoriaSelecionada)
+
     especie_user, porte_user, idade_user = ler_entrada_usuario(inpustDados)
     clientes = identificar_perfis_iguais(especie_user, porte_user, idade_user)
     clientes = ordenarClientesPorProbabilidade(clientes)[:LIMITE_MAX_CLIENTES]
     codClientes = ",".join(str(x) for x in list(map(lambda x: x[0], clientes))) 
     payload = '{"profiles": [' + codClientes + ']}'
     data = await solicitarIndicacao(payload)
-    montarResposta(data)
+
+    montarResposta(data, listaPalavrasReservas, inpustDados['categoria'], inpustDados['porte'], inpustDados['idade'])
 
     finalizarLoader()
     

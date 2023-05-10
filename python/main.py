@@ -7,7 +7,7 @@ from pyodide.http import open_url
 
 LIMITE_MAX_CLIENTES = 30
 
-url = "http://3.90.206.146/alldata"
+url = "http://3.80.155.111/alldata"
 FILE_PATH = '/Dados/USUARIOS_PETS_REPRESENTACAO_PERFIS.csv'
 DATA_FRAME = read_csv(open_url(FILE_PATH), encoding='utf-8')
 
@@ -19,6 +19,23 @@ PAGINA_ERRO = document.getElementById("pagina-erro-div")
 OL_ALIMENTOS = document.getElementById('ol-alimentos')
 OL_BAZAR = document.getElementById("ol-bazar")
 OL_HIGIENE = document.getElementById("ol-higiene-beleza")
+PALAVRAS_RESEVADAS= {
+    'CÃES': ['CÃES', 'OSSO', 'DOG', 'PEDIGREE', 'PUPPY', 'BULLDOG', 'CÃO', 'CAO', 'DOGUINHO'], 
+    'GATOS': ['CAT', 'GATO', 'CATS', 'GATOS', 'WHISKAS'],
+    
+    'PÁSSAROS': ['PÁSSARO', 'PAPAGAIO' 'CALOPSITA', 'AVE', 'PERIQUITO', 'CURIO', 'PASSARO', 'SABIA', 'BEIJA FLOR', 'ALPISTE'],
+    'RÉPTEIS': ['RÉPTEIS', 'RÉPTIL', 'JABUTI', 'TARTARUGA', 'TURTLE'],
+    'PEIXES': ['PEIXE' 'AQUÁRIO', 'AQUA', 'FISH'],
+    'ROEDORES':  ['ROEDOR', 'HAMSTER', 'COELHO', 'SERRAGEM', 'PORQUINHO'],
+}
+
+def getPalavrasResevadas(categoria):
+    palavras = []
+    for k,v in PALAVRAS_RESEVADAS.items():
+        if(k != categoria):
+            palavras += v
+    console.log(str(palavras))
+    return palavras
 
 
 
@@ -39,11 +56,19 @@ async def solicitarIndicacao(payload):
             navegarParaErro()
             console.log('Error:', e)
 
-def getProdutos(proxy, categoria):
+def getProdutos(proxy, categoria, palavrasReservas = []):
     produtos = []
     dictCategorias = dict(proxy.to_py())
     for item in dictCategorias[categoria]:
-        produtos.append(item['nome'])
+        presente = False
+        nomeProduto = item['nome']
+        for palavra in palavrasReservas:
+            if palavra in nomeProduto:
+                presente = True
+                break
+        if not presente:
+            produtos.append(nomeProduto)
+            
     return produtos
 
 def listToLiStringHTML(list):
@@ -61,11 +86,12 @@ def navegarParaResposta():
     PAGINA_HOME.style.display = "none"
     PAGINA_RESPOSTA.style.display = "block"
 
-def montarResposta(data):
+def montarResposta(data, listaPalavrasReservas):
     dados_retornados = data.result.data
-    alimentos = listToLiStringHTML(getProdutos(dados_retornados, 'ALIMENTOS'))
-    bazar = listToLiStringHTML(getProdutos(dados_retornados, 'BAZAR'))
-    higiene = listToLiStringHTML(getProdutos(dados_retornados, 'HIGIENE E BELEZA'))
+    alimentos = listToLiStringHTML(getProdutos(dados_retornados, 'ALIMENTOS', listaPalavrasReservas))
+    bazar = listToLiStringHTML(getProdutos(dados_retornados, 'BAZAR', listaPalavrasReservas))
+    higiene = listToLiStringHTML(getProdutos(dados_retornados, 'HIGIENE E BELEZA', listaPalavrasReservas))
+
     OL_ALIMENTOS.innerHTML = alimentos
     OL_BAZAR.innerHTML = bazar
     OL_HIGIENE.innerHTML = higiene
@@ -76,14 +102,17 @@ def montarResposta(data):
 async def getData(*args):
     iniciarLoader()
     inpustDados = inputToJSON(['categoria', 'porte', 'idade'])
-    console.log(str(inpustDados))
+    categoriaSelecionada = inpustDados['categoria']
+    listaPalavrasReservas = getPalavrasResevadas(categoriaSelecionada)
+
     especie_user, porte_user, idade_user = ler_entrada_usuario(inpustDados)
     clientes = identificar_perfis_iguais(especie_user, porte_user, idade_user)
     clientes = ordenarClientesPorProbabilidade(clientes)[:LIMITE_MAX_CLIENTES]
     codClientes = ",".join(str(x) for x in list(map(lambda x: x[0], clientes))) 
     payload = '{"profiles": [' + codClientes + ']}'
     data = await solicitarIndicacao(payload)
-    montarResposta(data)
+
+    montarResposta(data, listaPalavrasReservas)
 
     finalizarLoader()
     

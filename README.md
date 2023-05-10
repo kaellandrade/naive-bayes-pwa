@@ -29,8 +29,8 @@ Descrição aqui...
 ### Site Map (fluxo das telas)
 
 <div align="center">
-    <img src="./imgs/readme/site-map.png" title="Site map" width="50%"/>
   <div style="display: flex; align-items: flex-start;">
+    <img src="./imgs/readme/site-map.png" title="Site map" width="42%"/>
     <img src="./imgs/readme/home.png" title="Tela inicial" width="20%"/>
     <img src="./imgs/readme/end.png" title="Tela de recomendação"width="20%"/>
     <img src="./imgs/readme/off-line.png" title="Tela off-line" width="20%"/>

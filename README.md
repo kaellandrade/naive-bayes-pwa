@@ -23,7 +23,7 @@ Projeto Final para disciplina de IA - UFS
 
 ## :movie_camera: Vídeo Demonstração
 
-[![Alt text for your video](./imgs/image-youtube.png)](https://www.youtube.com/watch?v=nQVRG2lsp6w)
+[![Alt text for your video](./imgs/image-youtube.png)](https://youtu.be/Nh_YWEyHrXk)
 
 ## :camera: UX Telas
 

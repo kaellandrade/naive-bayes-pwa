@@ -9,7 +9,7 @@ from pyodide.http import open_url
 LIMITE_MAX_CLIENTES = 30
 LIMITE_MAX_PRODUTOS_POR_CATEGORIA = 10
 
-url = "https://api-pet.fisioluanamenezes.com/alldata"
+url = "http://34.229.74.90/alldata"
 FILE_PATH = '/Dados/USUARIOS_PETS_REPRESENTACAO_PERFIS.csv'
 DATA_FRAME = read_csv(open_url(FILE_PATH), encoding='utf-8')
 
@@ -62,7 +62,7 @@ def randomizarProdutos(produtos):
     produtosRandomizados = []
     for i in range(LIMITE_MAX_PRODUTOS_POR_CATEGORIA):
         if(len(produtos) > 0):
-            index = random.randint(0, len(PALAVRAS_RESERVADAS)-1)
+            index = random.randint(0, len(produtos)-1)
             produtosRandomizados.append(produtos[index])
             produtos.pop(index)
     return produtosRandomizados

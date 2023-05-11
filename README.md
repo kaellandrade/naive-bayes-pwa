@@ -28,7 +28,7 @@ Projeto Final para disciplina de IA - UFS
 
 > :heavy_exclamation_mark: Para o documento com os dados completo dos integrantes entrar em contato com micael.santos@dcomp.ufs.br
 
-[:closed_book: Doc](./doc/Registro_De_Programa_PetIndica.pdf)
+[:closed_book: Doc](./doc/Registro_De_Programa_De_Computador_%20PetIndica.docx)
 
 ### :movie_camera: Vídeo Demonstração
 

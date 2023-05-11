@@ -9,7 +9,7 @@ from pyodide.http import open_url
 LIMITE_MAX_CLIENTES = 30
 LIMITE_MAX_PRODUTOS_POR_CATEGORIA = 10
 
-url = "http://34.229.74.90/alldata"
+url = "https://api-pet.fisioluanamenezes.com/alldata"
 FILE_PATH = '/Dados/USUARIOS_PETS_REPRESENTACAO_PERFIS.csv'
 DATA_FRAME = read_csv(open_url(FILE_PATH), encoding='utf-8')
 

@@ -12,14 +12,15 @@ Projeto Final para disciplina de IA - UFS
 ![Bitbucket open issues](https://img.shields.io/bitbucket/issues/kaellandrade/naive-bayes-pwa?style=for-the-badge)
 ![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/kaellandrade/naive-bayes-pwa?style=for-the-badge)
 
-> O PetIndica é um programa de computador via web que serve para recomendar produtos da área pet para possíveis clientes que ainda não sabem o que comprar ou que preferem ter um conselho mais refinado sobre indicações de produtos. 
+> O PetIndica é um programa de computador via web que serve para recomendar produtos da área pet para possíveis clientes que ainda não sabem o que comprar ou que preferem ter um conselho mais refinado sobre indicações de produtos.
 
 - [Prototipo no figma](https://www.figma.com/file/XypjyQvUThlPKbfAhi9Ulw/PetIndica?type=design&node-id=0%3A1&t=nPKN4ucsf6fl2eIe-1)
 
 ## Acessar o projeto no Netlify
+
 <a href="https://petindica.netlify.app/" target="_blank">PetIndica</a>
 
-- Observação: a aplicação do netlify não consegue fazer requisições ao banco de dados porque não possui um certificado SSL, por isso no vídeo abaixo mostramos a aplicação rodando local.
+- Observação: Se por acaso o app der alguma instabilidade nas requisições, é só mandar um email ou me marcar no classroom com gabriel.btera@academico.ufs.br que verificamos.
 
 ## :movie_camera: Vídeo Demonstração
 
@@ -112,7 +113,6 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
 
 - No output, mostrar também imagens ilustrativas de cada produto.
 - Adquirir um certificado SSL para deixar que a aplicação no netlify consiga fazer requisições ao banco de dados.
-
 
 ## :closed_book: Referências
 

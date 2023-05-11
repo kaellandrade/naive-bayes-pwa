@@ -118,7 +118,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
 
 ### Artigos
 
-> P. Valdiviezo-Diaz, F. Ortega, E. Cobos and R. Lara-Cabrera, "A Collaborative Filtering Approach Based on Naïve Bayes Classifier," in IEEE Access, vol. 7, pp. 108581-108592, 2019, doi: 10.1109/ACCESS.2019.2933048. - Filtragem colaboratica
+> P. Valdiviezo-Diaz, F. Ortega, E. Cobos and R. Lara-Cabrera, "A Collaborative Filtering Approach Based on Naïve Bayes Classifier," in IEEE Access, vol. 7, pp. 108581-108592, 2019, doi: 10.1109/ACCESS.2019.2933048. - Filtragem colaborativa
 
 ### UX inspirações
 

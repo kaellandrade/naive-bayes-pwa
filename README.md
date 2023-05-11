@@ -16,13 +16,20 @@ Projeto Final para disciplina de IA - UFS
 
 - [Prototipo no figma](https://www.figma.com/file/XypjyQvUThlPKbfAhi9Ulw/PetIndica?type=design&node-id=0%3A1&t=nPKN4ucsf6fl2eIe-1)
 
-## Acessar o projeto no Netlify
+## :heavy_check_mark: Entregáveis
+
+### :link: Acessar o projeto no Netlify
 
 <a href="https://petindica.netlify.app/" target="_blank">PetIndica</a>
 
-- Observação: Se por acaso o app der alguma instabilidade nas requisições, é só mandar um email ou me marcar no classroom com gabriel.btera@academico.ufs.br que verificamos.
+> :exclamation: Observação: Se por acaso o app der alguma instabilidade nas requisições, é só mandar um email ou me marcar no classroom com gabriel.btera@academico.ufs.br que verificamos.
 
-## :movie_camera: Vídeo Demonstração
+### :clipboard: Doc de registro do software
+
+> :heavy_exclamation_mark: Para o documento com os dados completo dos integrantes entrar em contato com micael.santos@dcomp.ufs.br
+> [:closed_book: Doc](./doc/Registro_De_Programa_PetIndica.pdf)
+
+### :movie_camera: Vídeo Demonstração
 
 [![Alt text for your video](./imgs/image-youtube.png)](https://youtu.be/Nh_YWEyHrXk)
 
@@ -35,7 +42,7 @@ Telas criadas no figma para elaboração do projeto.
   <div style="display: flex; align-items: flex-start; justify-content:center;">
     <img src="./imgs/readme/home.png" title="Tela inicial" width="20%"/>
     <img src="./imgs/readme/end.png" title="Tela de recomendação"width="20%"/>
-    <img src="/imgs/readme/off-line.png" title="Tela off-line" width="20%"/>
+    <img src="./imgs/readme/off-line.png" title="Tela off-line" width="20%"/>
   </div>
 </div>
 

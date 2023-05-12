@@ -119,8 +119,8 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
 
 ## Ajustes e melhorias (Trabalhos futuros)
 
+- Obter dados para classes de animais que não recebem nenhuma recomendação. Isso se deve ao fato de na nossa base não haver dados suficientes para aquelas características em específico. Como por exemplo **PASSÁRO -> GIGANTE -> ADULTO -> A nossa base de dados não tem nenhuma compra com essa categoria. Assim como outras.**
 - No output, mostrar também imagens ilustrativas de cada produto.
-- Adquirir um certificado SSL para deixar que a aplicação no netlify consiga fazer requisições ao banco de dados.
 
 ## :closed_book: Referências
 

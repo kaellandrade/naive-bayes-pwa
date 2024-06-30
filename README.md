@@ -104,18 +104,16 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
 
 ## **Linguagens e Ferramentas utilizadas no projeto:**
 
-<code><img height="30" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png" title="JavaScript"></code>
-<code><img height="30" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/html/html.png" title="HTML"></code>
-<code><img height="30" src="https://th.bing.com/th/id/R.6b2018f5c6532f6c29806ef06ffb158d?rik=iz3jaCtzRF18EQ&pid=ImgRaw&r=0" title="CSS"></code>
-<code><img height="30" src="https://www.postgresql.org/media/img/about/press/elephant.png" title="postgreSQL"></code>
-<code><img height="30" src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" title="AWS Academy"></code>
-<code><img height="30" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/git/git.png" title="Git"></code>
-<code><img height="30" src="https://pyodide.org/en/stable/_static/pyodide-logo.png" title="Pyodide"></code>
-<code><img height="30" src="https://www.python.org/static/img/python-logo.png" title="Python"></code>
-<code><img height="30" src="https://brandslogos.com/wp-content/uploads/images/large/figma-logo.png" title="Figma"></code>
-<code><img height="30" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/visual-studio-code/visual-studio-code.png" title="VsCode"></code>
-<code><img height="30" src="https://th.bing.com/th/id/R.157f907ab99edc35681260a54b809212?rik=vraQQ%2fYB2OVNaA&pid=ImgRaw&r=0" title="Jetbrains"></code>
-<code><img height="30" src="https://upload.wikimedia.org/wikipedia/commons/9/97/Netlify_logo_%282%29.svg" title="Netlify"></code>
+[![JavaScript](https://img.shields.io/badge/-Javascript-yellow?style=for-the-badge&logo=javascript&logoColor=white)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
+[![postgresql](https://img.shields.io/badge/-postgresql-blue?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![Python](https://img.shields.io/badge/-python-blue?style=for-the-badge&logo=python&logoColor=yellow)](https://www.python.org/)
+[![Pyodide](https://img.shields.io/badge/-Pyodide-blue?style=for-the-badge&logo=python&logoColor=white)](https://pyodide.org/en/stable/)
+[![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
+[![CSS3](https://img.shields.io/badge/-CSS3-1572B6?style=for-the-badge&logo=css3)](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
+[![Docker](https://img.shields.io/badge/docker-black?style=for-the-badge&logo=docker)](https://www.docker.com/)
+[![Git](https://img.shields.io/badge/-Git-black?style=for-the-badge&logo=git)](https://git-scm.com/)
+[![netlify](https://img.shields.io/badge/-netlify-black?style=for-the-badge&logo=netlify)](https://www.netlify.com/)
+
 
 ## Ajustes e melhorias (Trabalhos futuros)
 
